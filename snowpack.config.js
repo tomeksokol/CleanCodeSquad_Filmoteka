@@ -6,9 +6,7 @@ module.exports = {
   mount: {
     /* ... */
   },
-  plugins: [
-    '@snowpack/plugin-sass',
-  ],
+  plugins: ["@snowpack/plugin-sass"],
   packageOptions: {
     /* ... */
   },
@@ -16,6 +14,6 @@ module.exports = {
     /* ... */
   },
   buildOptions: {
-    /* ... */
+    baseUrl: "/gh-pages-CleanCodeSquad_Filmoteka",
   },
 };
