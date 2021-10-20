@@ -31,4 +31,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.container {
+  width: calc(100% - 30px);
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
 /*# sourceMappingURL=main.css.map */
