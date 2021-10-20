@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/tomeksokol/CleanCodeSquad_Filmoteka/issues"
   },
-  "homepage": "https://tomeksokol.github.io/CleanCodeSquad_Filmoteka/",
+  "homepage": "https://tomeksokol.github.io/CleanCodeSquad_Filmoteka",
   "devDependencies": {
     "sass": "^1.43.2",
     "snowpack": "^3.8.8"
