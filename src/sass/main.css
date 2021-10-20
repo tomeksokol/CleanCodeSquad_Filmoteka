@@ -1,5 +1,5 @@
 body {
-  background-color: paleturquoise;
+  background-color: lightgray;
   font-size: 50px;
 }
 
@@ -41,5 +41,10 @@ a {
   .container {
     max-width: 1024px;
   }
+}
+
+h1 {
+  color: red;
+  background-color: #fff;
 }
 /*# sourceMappingURL=main.css.map */
