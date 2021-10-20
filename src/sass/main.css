@@ -1,6 +1,5 @@
 body {
   background-color: lightgray;
-  font-size: 50px;
 }
 
 h1,
@@ -43,8 +42,13 @@ a {
   }
 }
 
-h1 {
-  color: red;
-  background-color: #fff;
+.header > .container {
+  background-color: #ebc3c3;
+  height: 230px;
+}
+
+.search__btn {
+  border: none;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
