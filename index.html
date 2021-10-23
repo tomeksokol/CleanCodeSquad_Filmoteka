@@ -1,95 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="src/sass/main.css" />
 
-    <title>Filmoteka</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <nav>
-          <a href="./index.html">
-            <img
-              class="logo__img"
-              src="./src/images/logo.png"
-              alt="movie-logo"
-            />
-            <span class="logo__title">Filmoteka</span>
-          </a>
-          <ul class="navigation__list">
-            <li class="navigation__item navigation__item--accent">
-              <a class="navigation__link link" href="./index.html">Home</a>
-            </li>
-            <li class="navigation__item">
-              <a class="navigation__link link" href="#">My Library</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="search__container">
-          <form class="search-form" id="search-form">
-            <input
-              type="text"
-              name="searchQuery"
-              autocomplete="off"
-              placeholder="Searching movies..."
-            />
-            <button class="search__btn" type="submit" name="submitBtn">
-              <!-- <svg class="search__icon" width="12" height="12">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="src/sass/main.css" />
+
+  <title>Filmoteka</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <nav>
+        <a href="./index.html">
+          <img class="logo__img" src="./src/images/logo.png" alt="movie-logo" />
+          <span class="logo__title">Filmoteka</span>
+        </a>
+        <ul class="navigation__list">
+          <li class="navigation__item navigation__item--accent">
+            <a class="navigation__link link" href="./index.html">Home</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link link" href="#">My Library</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="search__container">
+        <form class="search-form" id="search-form">
+          <input type="text" name="searchQuery" autocomplete="off" placeholder="Searching movies..." />
+          <button class="search__btn" type="submit" name="submitBtn">
+            <!-- <svg class="search__icon" width="12" height="12">
                 <use href="images/search-btn-icon.svg#icon-search_btn"></use>
             </svg> -->
-              <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 32 32"
-              >
-                <title>search_btn</title>
-                <path
-                  fill="none"
-                  stroke="#fff"
-                  stroke-linejoin="round"
-                  stroke-linecap="round"
-                  stroke-miterlimit="4"
-                  stroke-width="2.6667"
-                  d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z"
-                ></path>
-                <path
-                  fill="none"
-                  stroke="#fff"
-                  stroke-linejoin="round"
-                  stroke-linecap="round"
-                  stroke-miterlimit="4"
-                  stroke-width="2.6667"
-                  d="M28 28.001l-5.8-5.8"
-                ></path>
-              </svg>
-            </button>
-          </form>
-        </div>
-        <div class="search__result">
-          Search result not successful. Enter the correct movie name and
-        </div>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 32 32">
+              <title>search_btn</title>
+              <path fill="none" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
+                stroke-width="2.6667"
+                d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z">
+              </path>
+              <path fill="none" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
+                stroke-width="2.6667" d="M28 28.001l-5.8-5.8"></path>
+            </svg>
+          </button>
+        </form>
       </div>
-    </header>
-    <main>
-      <section>
-        <div class="container">Movies list</div>
-      </section>
-    </main>
-    <!-- footer -->
+      <div class="search__result">
+        Search result not successful. Enter the correct movie name and
+      </div>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="container"></div>
+    </section>
+  </main>
+  <!-- footer -->
   <footer class="footer__page">
     <div class="container">
       <p class="footer__page-lead">
@@ -98,18 +69,18 @@
           <svg class="footer__page-icon" width="14px" height="13px">
             <use href="./images/icons/heart.svg#heart"></use>
           </svg>
-           by
-              <a href="#" class="footer__page-link link-style" data-modal-open>GoIT Students</a>
+          by
+          <a href="#" class="footer__page-link link-style" data-modal-open>GoIT Students</a>
         </span>
       </p>
-    </div> 
+    </div>
   </footer>
 
- 
+
   <div id="spinner"></div>
   <!-- modal -->
   <div class="modal"></div>
- 
+
   <!-- footer-modal -->
   <div class="footer-modal is-hidden" data-modal>
     <div class="footer-modal__window">
@@ -120,9 +91,10 @@
 
   <!-- end footer modal -->
 
-    <!-- <include type="module" src="./src/partials/my-library.html"></include> -->
-    <!-- <script type="module" src="./index.js"></script> -->
+  <!-- <include type="module" src="./src/partials/my-library.html"></include> -->
+  <script type="module" src="./index.js"></script>
 
 
-  </body>
+</body>
+
 </html>
