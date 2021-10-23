@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
-const container = document.querySelector(".container");
+const container = document.querySelector(".movie__container");
 let movieId = [];
 
 async function fetchFilms() {
