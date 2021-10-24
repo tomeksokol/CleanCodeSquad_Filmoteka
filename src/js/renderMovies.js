@@ -67,3 +67,4 @@ function renderMovies(movie) {
     }
   );
 }
+export { renderMovies, setFilms };
