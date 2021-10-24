@@ -6,3 +6,42 @@
   padding: 0;
   cursor: pointer;
 }
+
+.header__buttons {
+  padding-top: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 130px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.333;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 14px 36px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  background: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: #ff6b01;
+    border: transparent;
+  }
+}
+.btn-margin {
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    width: 136px;
+  }
+  .btn-margin {
+    margin-right: 15px;
+  }
+}

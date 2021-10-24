@@ -20,7 +20,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="src/sass/main.css" />
 
-    <title>Filmoteka</title>
+    <title>My library</title>
   </head>
 
   <body>
@@ -39,50 +39,25 @@
           </div>
           <div class="nav__list">
             <ul class="navigation__list">
-              <li class="navigation__item navigation__item--accent">
+              <li class="navigation__item">
                 <a class="navigation__link link" href="./index.html">Home</a>
               </li>
-              <li class="navigation__item navigation__margin">
-                <a class="navigation__link link" href="./my-library.html">My Library</a>
+              <li class="navigation__item navigation__margin navigation__item--accent">
+                <a class="navigation__link link" href="#">My Library</a>
               </li>
             </ul>
           </div>
         </nav>
-        <div class="search__container">
-          <form class="search-form" id="search-form">
-            <input
-              class="input__box"
-              type="text"
-              name="searchQuery"
-              autocomplete="off"
-              placeholder="Searching movies..."
-            />
-            <button class="search__btn" type="submit" name="submitBtn">
-              <!-- <svg class="search__icon" width="12" height="12">
-                <use href="images/search-btn-icon.svg#icon-search_btn"></use>
-            </svg> -->
-
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 32 32">
-              <title>search_btn</title>
-              <path fill="none" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
-                stroke-width="2.6667"
-                d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z">
-              </path>
-              <path fill="none" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
-                stroke-width="2.6667" d="M28 28.001l-5.8-5.8"></path>
-            </svg>
-          </button>
-        </form>
-      </div>
-      <div class="search__result">
-        Search result not successful. Enter the correct movie name and try again
-
+        <div class="header__buttons">
+          <button type="button" class="btn watched btn-margin">Watched</button>
+          <button type="button" class="btn queue">Queue</button>
+        </div>
       </div>
     </header>
     <main>
-      <section class="movie__gallery">
-        <div class="movie__container container"></div>
-        <div class="movie__pagination"></div>
+      <section class="library__gallery">
+        <div class="library__container container"></div>
+        <div class="library__pagination"></div>
       </section>
     </main>
     <!-- footer -->
@@ -117,7 +92,6 @@
 
     <!-- end footer modal -->
 
-    <!-- <include type="module" src="./src/partials/my-library.html"></include> -->
-    <script type="module" src="./index.js"></script>
+    <!-- <script type="module" src="./index.js"></script> -->
   </body>
 </html>
