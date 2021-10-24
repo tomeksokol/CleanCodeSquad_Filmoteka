@@ -85,14 +85,14 @@
     color: #ffffff;
   }
   .search__result {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    text-align: center;
     margin-top: 22px;
     margin-left: 20px;
     font-size: 14px;
     line-height: 1.142;
-    align-items: center;
     color: #ff001b;
     // display: none;
   }
