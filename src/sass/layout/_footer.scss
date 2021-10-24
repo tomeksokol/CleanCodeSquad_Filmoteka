@@ -1,4 +1,5 @@
 .footer__page {
+  background-color: #F7F7F7;
     color: #545454;
     font-size: 16px;
     line-height: 1.18;
@@ -21,17 +22,17 @@
   
 
     @media screen and (max-width: 767px) {
-        min-width: 320px;
+        // min-width: 320px;
     }
 
     //  tablet
     @media screen and (min-width: 768px) {
-        width: 658px;
+        // width: 658px;
     }
 
     //  desktop
     @media screen and (min-width: 1024px) {
-        width: 922px;
+      max-width: 1024px;
     }
 }
 
