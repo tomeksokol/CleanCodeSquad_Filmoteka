@@ -21,7 +21,6 @@
   "devDependencies": {
     "snowpack": "^3.8.8"
   },
-
   "dependencies": {
     "js.": "^1.0.0",
     "spin.js": "^4.1.1"
