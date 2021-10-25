@@ -55,7 +55,7 @@ function renderMovies(movie) {
       <ul class="movies-list">
       <li class="movies-item">
       <div class="movies-poster">
-      <img class="movies-image" src="http://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
+      <img class="movies-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
       </div>
 
   <div class="description">
