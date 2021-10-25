@@ -2,7 +2,7 @@
   .header .container {
     // background: rgba(0, 0, 0, 0.56);
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("../../images/img/header-mobile.png");
+      url("../images/header-mobile.png");
     background-repeat: no-repeat;
     background-size: cover;
     border: 1px solid rgba(0, 0, 0, 1);
@@ -99,6 +99,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .header .container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../images/header-tab.png");
+  }
   .logo__img {
     margin-left: 71px;
     margin-right: 10px;
@@ -121,6 +125,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .header .container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../images/header-desk.png");
+  }
   .navigation__margin {
     margin-right: 71px;
   }
