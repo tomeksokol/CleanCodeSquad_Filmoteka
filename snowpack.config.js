@@ -6,7 +6,7 @@ module.exports = {
   mount: {
     /* ... */
   },
-  plugins: [["@snowpack/plugin-sass"], ["snowpack-plugin-relative-css-urls"]],
+  plugins: [ ["snowpack-plugin-relative-css-urls"]],
   packageOptions: {
     /* ... */
   },
