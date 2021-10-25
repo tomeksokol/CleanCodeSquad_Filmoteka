@@ -2,7 +2,7 @@ const BASE_URL = "https://api.themoviedb.org/3/";
 const container = document.querySelector(".movie__container");
 const input = document.querySelector('input[name="searchQuery"]');
 const searchResult = document.querySelector(".search__result");
-import { renderMovies, setFilms } from "./renderMovies";
+import { renderMovies, setFilms } from './renderMovies';
 searchResult.style.display = "none";
 
 async function fetchSearchFilms(title) {
