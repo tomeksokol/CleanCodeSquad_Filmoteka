@@ -28,7 +28,8 @@
   border-radius: 5px;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: #ff6b01;
     border: transparent;
     -webkit-box-shadow: 5px 3px 35px 14px rgba(255, 107, 1, 0.53);
