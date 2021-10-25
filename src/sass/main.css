@@ -45,8 +45,8 @@ a {
 
 @media screen and (min-width: 320px) {
   .header .container {
-    background: rgba(0, 0, 0, 0.56);
-    background-image: url("../../images/img/header-mobile.png");
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../../images/img/header-mobile.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/img/header-mobile.png");
     background-repeat: no-repeat;
     background-size: cover;
     border: 1px solid black;
