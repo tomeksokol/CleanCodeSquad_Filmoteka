@@ -4,17 +4,16 @@ let movieId = [];
 
 async function fetchFilms() {
   const page = 1;
-  return fetch(
+  const response = await fetch(
     `${BASE_URL}trending/movie/week?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
-  ).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+  );
+  if (!response.ok) {
+    throw new Error(response.status);
+  }
+  return await response.json();
 }
 
-async function setFilms() {
+function setFilms() {
   fetchFilms()
     .then((movie) => {
       renderMovies(movie);
@@ -26,14 +25,13 @@ async function setFilms() {
 setFilms();
 
 async function fetchGenres() {
-  return fetch(
+  const response = await fetch(
     `${BASE_URL}genre/movie/list?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
-  ).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+  );
+  if (!response.ok) {
+    throw new Error(response.status);
+  }
+  return await response.json();
 }
 
 function setGenres() {
