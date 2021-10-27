@@ -49,7 +49,7 @@ function renderMovies(movie) {
         .join(", ");
 
       let relaseYear = release_date.substring(0, 4);
-      container.innerHTML += `<div class="movies-cart">
+      container.innerHTML += `<div class="movies-cart data-movie">
       <ul class="movies-list">
       <li class="movies-item">
       <div class="movies-poster">
@@ -69,4 +69,22 @@ function renderMovies(movie) {
     }
   );
 }
+// /////////////////////
+const modalContent = document.querySelector(".modal-content");
+function renderMovieCart(movie) {
+  movie.results.forEach(
+    ({ original_title, poster_path, release_date, genre_ids }) => {
+      let movieGenre = movieId
+        .filter((genre) => genre_ids.includes(genre.id))
+        .map((genre) => genre.name)
+        .join(", ");
+
+      let relaseYear = release_date.substring(0, 4);
+      modalContent.innerHTML += `
+      <img class="movies-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>`;
+    }
+  );
+}
+
+////////////////
 export { renderMovies, setFilms };
