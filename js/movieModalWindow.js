@@ -1,27 +1,28 @@
 import { renderMovies, setFilms } from "./renderMovies";
 
 const galleryContainer = document.querySelector(".movie__container");
-const movieCard2 = document.querySelector(".movies-cart")
-const movieCards = galleryContainer.childNodes;
+console.log(galleryContainer);
+const movieCard2 = document.querySelectorAll(".movies-cart")
+const movieCards = galleryContainer.children;
 console.log(movieCards);
 const modal = document.querySelector("#myModal");
 const closeBtn = document.querySelector(".close");
 const modalContent = document.querySelector(".modal-txt");
 
-galleryContainer.addEventListener("click", selectedCart);
+// galleryContainer.addEventListener("click", selectedCart);
 
-function selectedCart(evt) {
-  if (evt.target.childNodes === "movies-cart") {
-    console.log("jest");
-  }
-  const selectedMovie = evt.target.dataset.movie;
-  console.log(selectedMovie);
-  modal.style.display = "block";
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-  console.log("cart clicked");
-}
+// function selectedCart(evt) {
+//   if (evt.target.childNodes === "movies-cart") {
+//     console.log("jest");
+//   }
+//   const selectedMovie = evt.target.dataset.movie;
+//   console.log(selectedMovie);
+//   modal.style.display = "block";
+//   closeBtn.addEventListener("click", () => {
+//     modal.style.display = "none";
+//   });
+//   console.log("cart clicked");
+// }
 
 // galleryContainer.childNodes.forEach(gallery => {
 //   gallery.addEventListener("click", () => {
@@ -38,7 +39,7 @@ function selectedCart(evt) {
 
 
 //Event opening modal window
-// galleryContainer.addEventListener("click", selectMovieCart);
+galleryContainer.addEventListener("click", selectMovieCart);
 
 function selectMovieCart(event) {
   event.preventDefault();
@@ -112,3 +113,31 @@ window.addEventListener("click", (ev) => {
 
   // instance.show()
 // };
+
+
+
+// (() => {
+//   const refs = {
+//     openModalBtn: document.querySelector("[data-modal-open]"),
+//     closeModalBtn: document.querySelector("[data-modal-close]"),
+//     modal: document.querySelector("[data-modal]"),
+//   };
+
+//   refs.openModalBtn.addEventListener("click", toggleModal);
+//   refs.closeModalBtn.addEventListener("click", toggleModal);
+//   refs.modal.addEventListener("click", escape);
+
+//   function toggleModal() {
+//     refs.modal.classList.toggle("is-hidden");
+//     console.log("click");
+//   }
+
+//   function escape() {
+//     refs.modal.classList.add("is-hidden");
+//     document.addEventListener("keydown", function (event) {
+//       if (event.key === "Escape") {
+//         refs.modal.classList.add("is-hidden");
+//       }
+//     });
+//   }
+// })();

@@ -71,7 +71,7 @@
     </header>
     <main>
       <section class="movie__gallery">
-        <div class="movie__container container"></div>
+        <div class="movie__container container" data-modal-open></div>
         <div class="movie__pagination"></div>
       </section>
     </main>
@@ -95,7 +95,7 @@
 
     <div id="spinner"></div>
     <!-- modal -->
-    <div class="modal-window" data-modal></div>
+    <div class="modal-window"></div>
 
 
 
@@ -103,9 +103,9 @@
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
-  <div class="modal-content">
+  <div class="modal-content is-hidden moddal" data-modal>
     <span class="close">&times;</span>
-    <p class="modal-txt">Some text in the Modal..</p>
+    <p class="modal-txt"></p>
   </div>
 
 </div>
