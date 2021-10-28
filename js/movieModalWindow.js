@@ -1,4 +1,4 @@
-import { renderMovies, setFilms } from "./renderMovies";
+import { renderMovies, setFilms } from "./renderMovies.js";
 
 const galleryContainer = document.querySelector(".movie__container");
 console.log(galleryContainer);
