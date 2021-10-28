@@ -43,7 +43,7 @@ function setGenres() {
 setGenres();
 function renderMovies(movie) {
   movie.results.forEach(
-    ({ original_title, poster_path, release_date, genre_ids }) => {
+    ({ id, original_title, poster_path, release_date, genre_ids }) => {
       let movieGenre = movieId
         .filter((genre) => genre_ids.includes(genre.id))
         .map((genre) => genre.name)
@@ -52,7 +52,7 @@ function renderMovies(movie) {
       let relaseYear = release_date.substring(0, 4);
       container.innerHTML += `<div class="movies-cart">
       <ul class="movies-list">
-      <li class="movies-item">
+      <li class="movies-item" data-id="${id}">
       <div class="movies-poster">
       <img class="movies-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
       </div>
@@ -73,7 +73,6 @@ function renderMovies(movie) {
 // /////////////////////
 const modalContent = document.querySelector(".modal-txt");
 function renderMovieCart(movie) {
-  
   movie.results.forEach(
     ({
       original_title,
@@ -103,7 +102,7 @@ function renderMovieCart(movie) {
 }
 // function renderMovieCart(movie) {
 //   const{poster_path, genres, vote_average, vote_count, popularity, original_title, overview} = movie;
-  
+
 //   const markup =`<div class="moddal__window">
 //   <div class="moddal__grid">
 //   <img class="moddal__poster" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="plakat" />

@@ -3,7 +3,7 @@ const container = document.querySelector(".movie__container");
 const input = document.querySelector('input[name="searchQuery"]');
 const form = document.querySelector("#search-form");
 const searchResult = document.querySelector(".search__result");
-import { renderMovies, setFilms } from './renderMovies';
+import { renderMovies, setFilms } from './renderMovies.js';
 searchResult.style.display = "none";
 
 async function fetchSearchFilms(title) {

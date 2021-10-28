@@ -2,7 +2,7 @@ import { renderMovies, setFilms } from "./renderMovies";
 
 const galleryContainer = document.querySelector(".movie__container");
 console.log(galleryContainer);
-const movieCard2 = document.querySelectorAll(".movies-cart")
+const movieCard2 = document.querySelectorAll(".movies-cart");
 const movieCards = galleryContainer.children;
 console.log(movieCards);
 const modal = document.querySelector("#myModal");
@@ -30,20 +30,19 @@ const modalContent = document.querySelector(".modal-txt");
 //   })
 // }
 // );
-  
+
 //   {
 //   console.log("clicked");
 //   // movieCard.addEventListener("click", selectMovieCart);
 //   // console.log(`movie card ne ${movieCard} clicked`);
 // })
 
-
 //Event opening modal window
 galleryContainer.addEventListener("click", selectMovieCart);
 
 function selectMovieCart(event) {
   event.preventDefault();
-
+  console.log(event.target.parentNode.parentNode);
   modal.style.display = "block";
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
@@ -56,9 +55,6 @@ window.addEventListener("click", (ev) => {
     modal.style.display = "none";
   }
 });
-
-
-
 
 // moviesCard.onclick = function() {
 //   modal.style.display = "block";
@@ -75,46 +71,44 @@ window.addEventListener("click", (ev) => {
 //     modal.style.display = "none";
 //   }
 
-  // galleryContainer.addEventListener("click", selectMovie);
+// galleryContainer.addEventListener("click", selectMovie);
 
-  // function selectMovie(event) {
-  //   event.preventDefault();
-  // // Get the modal
+// function selectMovie(event) {
+//   event.preventDefault();
+// // Get the modal
 
-  // // Get the <span> element that closes the modal
+// // Get the <span> element that closes the modal
 
-  // // When the user clicks on the button, open the modal
+// // When the user clicks on the button, open the modal
 
-  // }
+// }
 
-  // console.log("movie container clicked");
-  // if (event.target.nodeName === moviesCard) {
-  //   console.log("movies cart clicked");
-  // }
-  // const instance = basicLightbox.create(
-  //   document.querySelector('template')
-  // )
+// console.log("movie container clicked");
+// if (event.target.nodeName === moviesCard) {
+//   console.log("movies cart clicked");
+// }
+// const instance = basicLightbox.create(
+//   document.querySelector('template')
+// )
 
-  // instance.show();
+// instance.show();
 
-  // modalWindow.innerHTML += `<p> to jest test okna modalnego </p>`;
-  // console.log("okno modalne");
-  // const selectedMovie = event.target;
-  // console.log(selectedMovie);
+// modalWindow.innerHTML += `<p> to jest test okna modalnego </p>`;
+// console.log("okno modalne");
+// const selectedMovie = event.target;
+// console.log(selectedMovie);
 
-  //   const instance = basicLightbox.create(`
-  //     <div class="modal">
-  //         <p>
-  //             Your first lightbox with just a few lines of code.
-  //             Yes, it's really that simple.
-  //         </p>
-  //     </div>
-  // `)
+//   const instance = basicLightbox.create(`
+//     <div class="modal">
+//         <p>
+//             Your first lightbox with just a few lines of code.
+//             Yes, it's really that simple.
+//         </p>
+//     </div>
+// `)
 
-  // instance.show()
+// instance.show()
 // };
-
-
 
 // (() => {
 //   const refs = {
