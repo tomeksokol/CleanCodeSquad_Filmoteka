@@ -398,47 +398,6 @@ a {
   }
 }
 
-ul.movie__pagination {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-ul.movie__pagination > li:not(:last-child) {
-  margin-right: 15px;
-}
-
-ul.movie__pagination button {
-  min-width: 40px;
-  height: 40px;
-  background: #f7f7f7;
-  border-radius: 5px;
-  border: none;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  cursor: pointer;
-  outline: none;
-}
-
-ul.movie__pagination button.button-number,
-ul.movie__pagination button.more-pages {
-  min-width: 5px;
-  background: #ffffff;
-}
-
-ul.movie__pagination button.active-pagination {
-  min-width: 40px;
-  background: #ff6b08;
-  border-radius: 5px;
-  color: #ffffff;
-}
-
 .footer__page {
   background-color: #F7F7F7;
   color: #545454;
@@ -497,10 +456,9 @@ ul.movie__pagination button.active-pagination {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #ffffff;
   margin: 15% auto;
   /* 15% from the top and centered */
-  padding: 20px;
   border: 1px solid #888;
   width: 80%;
   /* Could be more or less, depending on screen size */
@@ -519,6 +477,20 @@ ul.movie__pagination button.active-pagination {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media screen and (min-width: 320px) {
+  .modal__movie-content {
+    display: block;
+  }
+  .modal__poster {
+    width: calc(100%);
+    margin: 0 auto 30px;
+    padding: 48px 20px 0 20px;
+  }
+  .modal__images {
+    width: 100%;
+  }
 }
 
 .backdrop {
@@ -699,5 +671,46 @@ ul.movie__pagination button.active-pagination {
   height: 1px !important;
   width: 1px !important;
   overflow: hidden;
+}
+
+ul.movie__pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+ul.movie__pagination > li:not(:last-child) {
+  margin-right: 15px;
+}
+
+ul.movie__pagination button {
+  min-width: 40px;
+  height: 40px;
+  background: #f7f7f7;
+  border-radius: 5px;
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  cursor: pointer;
+  outline: none;
+}
+
+ul.movie__pagination button.button-number,
+ul.movie__pagination button.more-pages {
+  min-width: 5px;
+  background: #ffffff;
+}
+
+ul.movie__pagination button.active-pagination {
+  min-width: 40px;
+  background: #ff6b08;
+  border-radius: 5px;
+  color: #ffffff;
 }
 /*# sourceMappingURL=main.css.map */
