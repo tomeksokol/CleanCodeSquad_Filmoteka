@@ -1,4 +1,6 @@
 import loaderToggle from "./spinner.js";
+const paginationEl = document.querySelector(".library__pagination");
+const container = document.querySelector(".library__container");
 
 const mediaQuery = window.matchMedia("(max-width: 767px)");
 
@@ -14,7 +16,7 @@ const QUEUEKEY = "QueueList";
 
 createPagination();
 
-refs.paginationEl.addEventListener("click", (event) => {
+paginationEl.addEventListener("click", (event) => {
   if (event.target.nodeName === "BUTTON") {
     onBtnsClick(event);
   }
