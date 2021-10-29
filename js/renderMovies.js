@@ -49,7 +49,7 @@ setGenres();
 function renderMovies(movie) {
   totalPages = movie.total_pages;
   movie.results.forEach(
-    ({ original_title, poster_path, release_date, genre_ids }) => {
+    ({ id, original_title, poster_path, release_date, genre_ids }) => {
       let movieGenre = movieId
         .filter((genre) => genre_ids.includes(genre.id))
         .map((genre) => genre.name)
@@ -58,7 +58,7 @@ function renderMovies(movie) {
       let relaseYear = release_date.substring(0, 4);
       container.innerHTML += `<div class="movies-cart">
       <ul class="movies-list">
-      <li class="movies-item">
+      <li class="movies-item" data-id="${id}">
       <div class="movies-poster">
       <img class="movies-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
       </div>
@@ -76,4 +76,7 @@ function renderMovies(movie) {
     }
   );
 }
+
 export { renderMovies, setFilms, fetchFilms, totalPages };
+
+
