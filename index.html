@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-    integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./sass/main.css" />
 
@@ -39,7 +40,8 @@
       </nav>
       <div class="search__container">
         <form class="search-form" id="search-form">
-          <input class="input__box" type="text" name="searchQuery" autocomplete="off" placeholder="Searching movies..." />
+          <input class="input__box" type="text" name="searchQuery" autocomplete="off"
+            placeholder="Searching movies..." />
           <button class="search__btn" type="submit" name="submitBtn">
             <svg class="search__icon" width="12" height="12">
               <use href="./images/icons.svg#icon-search_btn"></use>
@@ -50,55 +52,53 @@
       <div class="search__result">
         Search result not successful. Enter the correct movie name and try again
       </div>
-    </header>
-    
-    <main>
-      <section class="movie__gallery">
-        <div class="movie__container container"></div>
-        <div class="movie__pagination"></div>
-      </section>
-    </main>
-    <!-- footer -->
-    <footer class="footer__page">
-      <div class="container">
-        <p class="footer__page-lead">
-          &COPY; 2021 | All Rights Reserved | Developed with
-          <span class="footer__page-dev">
-            <svg class="footer__page-icon" width="14px" height="13px">
-              <use href="./images/icons.svg#icon-heart"></use>
-            </svg>
-            by
-            <a href="#" class="footer__page-link link-style" data-modal-open
-              >GoIT Students</a
-            >
-          </span>
-        </p>
+  </header>
+
+  <main>
+    <section class="movie__gallery">
+      <div class="movie__container container"></div>
+      <div class="movie__pagination"></div>
+    </section>
+  </main>
+  <!-- footer -->
+  <footer class="footer__page">
+    <div class="container">
+      <p class="footer__page-lead">
+        &COPY; 2021 | All Rights Reserved | Developed with
+        <span class="footer__page-dev">
+          <svg class="footer__page-icon" width="14px" height="13px">
+            <use href="./images/icons.svg#icon-heart"></use>
+          </svg>
+          by
+          <a href="#" class="footer__page-link link-style" data-modal-open>GoIT Students</a>
+        </span>
+      </p>
     </div>
 
-    
-<div class="backdrop is-hidden" data-modal>
-  <div class="modal__window">
-    <button class="modal__close" data-modal-close><img width="30px" src="./images/close.svg" /></button>
-    <ul class="modal__list">
-      <li class="modal__item">
-        <img class="modal__img" src="./images/tomaszimg.jpg" alt="Tomasz" width="100px">
-        <h3 class="modal__name">Tomasz Sokół</h3>
-        <p class="modal__description">Team Leader</p>
-        <a class="modal__link" href="https://github.com/TomaszSokol">github</a>
-      </li>
-      <li class="modal__item">
-        <img class="modal__img" src="./images/michalimg.jpg" alt="Michał" width="100px">
-        <h3 class="modal__name">Michał Balicki</h3>
-        <p class="modal__description">Team member</p>
-        <a class="modal__link" href="https://github.com/MichalBielicki">github</a>
-      </li>
-      <li class="modal__item">
-        <img class="modal__img" src="./images/patrycjaimg.jpg" alt="Patrycja" width="100px">
-        <h3 class="modal__name">Patrycja Nowakowska</h3>
-        <p class="modal__description">Team member</p>
-        <a class="modal__link" href="https://github.com/PatrycjaNowakowska">github</a>
-      </li>
-    </ul>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal__window">
+        <button class="modal__close" data-modal-close><img width="30px" src="./images/close.svg" /></button>
+        <ul class="modal__list">
+          <li class="modal__item">
+            <img class="modal__img" src="./images/tomaszimg.jpg" alt="Tomasz" width="100px">
+            <h3 class="modal__name">Tomasz Sokół</h3>
+            <p class="modal__description">Team Leader</p>
+            <a class="modal__link" href="https://github.com/TomaszSokol">github</a>
+          </li>
+          <li class="modal__item">
+            <img class="modal__img" src="./images/michalimg.jpg" alt="Michał" width="100px">
+            <h3 class="modal__name">Michał Balicki</h3>
+            <p class="modal__description">Team member</p>
+            <a class="modal__link" href="https://github.com/MichalBielicki">github</a>
+          </li>
+          <li class="modal__item">
+            <img class="modal__img" src="./images/patrycjaimg.jpg" alt="Patrycja" width="100px">
+            <h3 class="modal__name">Patrycja Nowakowska</h3>
+            <p class="modal__description">Team member</p>
+            <a class="modal__link" href="https://github.com/PatrycjaNowakowska">github</a>
+          </li>
+        </ul>
 
       </div>
     </div>
@@ -106,18 +106,20 @@
 
   </footer>
 
-    <div id="spinner"></div>
-
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="modal-view">test test test</div>
+  <div class="loader-overlay">
+    <div class="loader"></div>
   </div>
-</div>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-view">test test test</div>
+    </div>
+  </div>
 
 
   <!-- footer-modal -->
@@ -130,12 +132,13 @@
 
   <!-- end footer modal -->
 
-    <!-- end footer modal -->
-<!-- 
+  <!-- end footer modal -->
+  <!-- 
     <script type="module" src="./index.js"></script> -->
-    <script type="module" src="./js/renderMovies.js"></script>
-    <script type="module" src="./js/searchMovies.js"></script>
-    <script type="module" src="./js/movieModalWindow.js"></script>
+  <script type="module" src="./js/renderMovies.js"></script>
+  <script type="module" src="./js/searchMovies.js"></script>
+  <script type="module" src="./js/movieModalWindow.js"></script>
+  <!-- <script type="module" src="./js/paginationLibrary.js"></script> -->
+</body>
 
-  </body>
 </html>
