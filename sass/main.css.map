@@ -11,7 +11,8 @@
         "layout/_library-gallery.scss",
         "layout/_library-header.scss",
         "layout/_footer.scss",
-        "layout/_modal-window.scss"
+        "layout/_modal-window.scss",
+        "layout/_modal-cart.scss"
     ],
     "names": [],
     "file": "main.css"

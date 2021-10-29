@@ -71,35 +71,35 @@ function renderMovies(movie) {
   );
 }
 // /////////////////////
-const modalContent = document.querySelector(".modal-txt");
-function renderMovieCart(movie) {
-  movie.results.forEach(
-    ({
-      original_title,
-      poster_path,
-      release_date,
-      genre_ids,
-      vote_average,
-      overview,
-    }) => {
-      let movieGenre = movieId
-        .filter((genre) => genre_ids.includes(genre.id))
-        .map((genre) => genre.name)
-        .join(", ");
+// const modalContent = document.querySelector(".modal-txt");
+// function renderMovieCart(movie) {
+//   movie.results.forEach(
+//     ({
+//       original_title,
+//       poster_path,
+//       release_date,
+//       genre_ids,
+//       vote_average,
+//       overview,
+//     }) => {
+//       let movieGenre = movieId
+//         .filter((genre) => genre_ids.includes(genre.id))
+//         .map((genre) => genre.name)
+//         .join(", ");
 
-      let relaseYear = release_date.substring(0, 4);
+//       let relaseYear = release_date.substring(0, 4);
 
-      let markup = `
-      <div class="modal__cart"><div class="modal__poster"><p>${overview}</p><p>${vote_average}</p>
-      <img class="modal__image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
-      </div>
-      <h1 class="modal__movie-name>${original_title}</h1>
-      <p>${overview}</p>
-      </div>`;
-      modalContent.insertAdjacentHTML("beforeend", markup);
-    }
-  );
-}
+//       let markup = `
+//       <div class="modal__cart"><div class="modal__poster"><p>${overview}</p><p>${vote_average}</p>
+//       <img class="modal__image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
+//       </div>
+//       <h1 class="modal__movie-name>${original_title}</h1>
+//       <p>${overview}</p>
+//       </div>`;
+//       modalContent.insertAdjacentHTML("beforeend", markup);
+//     }
+//   );
+// }
 // function renderMovieCart(movie) {
 //   const{poster_path, genres, vote_average, vote_count, popularity, original_title, overview} = movie;
 
