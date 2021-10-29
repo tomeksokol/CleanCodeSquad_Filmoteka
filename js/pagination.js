@@ -1,6 +1,10 @@
 import { fetchFilms, renderMovies, totalPages } from "./renderMovies.js";
+import loaderToggle from "./spinner.js";
 const paginationEl = document.querySelector(".movie__pagination");
 const container = document.querySelector(".movie__container");
+
+const mediaQuery = window.matchMedia("(max-width: 767px)");
+
 let pagMarkup = "";
 let currentPage = 0;
 const BTNS_ON_PAGE = 5;
@@ -69,6 +73,8 @@ function onBtnsClick(event) {
     paginationBtnsList[paginationBtnsList.length - 1].textContent
   );
 
+  loaderToggle();
+
   if (Number(event.target.textContent)) {
     onNumberBtnClick(event);
   } else if (event.target.textContent === "→" && currentPage < lastPage - 1) {
@@ -91,14 +97,9 @@ function onBtnsClick(event) {
         setActiveBtn(event);
       }, 1500)
     )
+    .then(loaderToggle)
     .then(goToTop);
 }
-//   clearPaginationMarkup();
-//   clearMovieContainer();
-//   setFilms();
-//   setPagination(totalPages);
-//   goToTop();
-//}
 
 function clearMovieContainer() {
   container.innerHTML = "";
@@ -112,8 +113,71 @@ function goToTop() {
 }
 
 function renderPaginationMarkup(length) {
-  renderPaginationMarkupForTabletAndDesktop(length);
+  if (mediaQuery.matches) {
+    renderPaginationMarkupForMobile(length);
+  } else {
+    renderPaginationMarkupForTabletAndDesktop(length);
+  }
   paginationEl.insertAdjacentHTML("beforeend", pagMarkup);
+}
+
+function renderPaginationMarkupForMobile(length) {
+  pagMarkup = "";
+
+  if (length <= BTNS_ON_PAGE) {
+    for (let i = 0; i < length; i += 1) {
+      pagMarkup += `<li class='pagination-item'><button class="button-number">${
+        i + 1
+      }</button></li>`;
+    }
+  } else {
+    if (currentPage + 1 < BTNS_ON_PAGE) {
+      pagMarkup =
+        '<li class="pagination-item"><button class="left">&#8592</button></li>';
+
+      for (let i = 1; i <= BTNS_ON_PAGE; i += 1) {
+        const pagItem = `<li class='pagination-item'><button class="button-number">${i}</button></li>`;
+        pagMarkup += pagItem;
+      }
+
+      pagMarkup += `<li class="pagination-item"><button class="right">&#8594</button></li>`;
+    } else if (
+      currentPage + 1 >= BTNS_ON_PAGE &&
+      currentPage + 1 < length - 3
+    ) {
+      pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage - 1
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage}</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 1
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 2
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 3
+      }</button></li>
+      <li class="pagination-item"><button class="right">&#8594</button></li>`;
+    } else {
+      pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
+        <li class='pagination-item'><button class="button-number">${
+          length - 4
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 3
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 2
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 1
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${length}</button></li>
+      <li class="pagination-item"><button class="right">&#8594</button></li>`;
+    }
+  }
 }
 
 function renderPaginationMarkupForTabletAndDesktop(length) {

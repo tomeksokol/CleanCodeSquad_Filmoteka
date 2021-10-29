@@ -1,3 +1,5 @@
+import loaderToggle from "./spinner.js";
+
 const mediaQuery = window.matchMedia("(max-width: 767px)");
 
 let pagMarkup = "";
