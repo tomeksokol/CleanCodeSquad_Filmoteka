@@ -4,6 +4,7 @@ let movieId = [];
 let totalPages = 0;
 let page = 1;
 
+
 async function fetchFilms(page) {
   const response = await fetch(
     `${BASE_URL}trending/movie/week?api_key=5d5fbc20666787ca7b4a0d9d71c08715&page=${page}`
@@ -15,7 +16,10 @@ async function fetchFilms(page) {
 }
 
 function setFilms() {
+
   fetchFilms(page)
+
+  fetchFilms()
     .then((movie) => {
       renderMovies(movie);
     })
