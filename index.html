@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
     integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./sass/main.css" />
 
@@ -55,7 +56,7 @@
     <main>
       <section class="movie__gallery">
         <div class="movie__container container"></div>
-        <div class="movie__pagination"></div>
+        <ul class="movie__pagination"></ul>
       </section>
     </main>
     <!-- footer -->
@@ -74,8 +75,9 @@
           </span>
         </p>
     </div>
+       <div id="spinner"></div>
 
-    
+    <!-- The Modal Team-Footer Window -->
 <div class="backdrop is-hidden" data-modal>
   <div class="modal__window">
     <button class="modal__close" data-modal-close><img width="30px" src="./images/close.svg" /></button>
@@ -106,36 +108,22 @@
 
   </footer>
 
-    <div id="spinner"></div>
 
-
-<!-- The Modal -->
+<!-- The Modal Movie Cart-->
 <div id="myModal" class="modal">
-
-  <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
     <div class="modal-view">test test test</div>
   </div>
 </div>
 
-
-  <!-- footer-modal -->
-  <!--  <div class="footer-modal is-hidden" data-modal>
-      <div class="footer-modal__window">
-        <ul class="footer-modal__list list"></ul>
-      </div>
-      <button type="button" class="footer-modal__btn" data-modal-close></button>
-    </div> -->
-
-  <!-- end footer modal -->
-
-    <!-- end footer modal -->
 <!-- 
     <script type="module" src="./index.js"></script> -->
+
     <script type="module" src="./js/renderMovies.js"></script>
+    <script type="module" src="./js/pagination.js"></script>
     <script type="module" src="./js/searchMovies.js"></script>
     <script type="module" src="./js/movieModalWindow.js"></script>
-
+ 
   </body>
 </html>

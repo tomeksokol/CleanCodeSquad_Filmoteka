@@ -1,11 +1,12 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
 const container = document.querySelector(".movie__container");
 let movieId = [];
+let totalPages = 0;
+let page = 1;
 
-async function fetchFilms() {
-  const page = 1;
+async function fetchFilms(page) {
   const response = await fetch(
-    `${BASE_URL}trending/movie/week?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
+    `${BASE_URL}trending/movie/week?api_key=5d5fbc20666787ca7b4a0d9d71c08715&page=${page}`
   );
   if (!response.ok) {
     throw new Error(response.status);
@@ -14,7 +15,7 @@ async function fetchFilms() {
 }
 
 function setFilms() {
-  fetchFilms()
+  fetchFilms(page)
     .then((movie) => {
       renderMovies(movie);
     })
@@ -35,12 +36,18 @@ async function fetchGenres() {
 }
 
 function setGenres() {
-  fetchGenres().then((id) => {
-    return (movieId = id.genres);
-  });
+  fetchGenres()
+    .then((id) => {
+      return (movieId = id.genres);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 setGenres();
+
 function renderMovies(movie) {
+  totalPages = movie.total_pages;
   movie.results.forEach(
     ({ id, original_title, poster_path, release_date, genre_ids }) => {
       let movieGenre = movieId
@@ -70,4 +77,6 @@ function renderMovies(movie) {
   );
 }
 
-export { renderMovies, setFilms };
+export { renderMovies, setFilms, fetchFilms, totalPages };
+
+
