@@ -66,7 +66,7 @@ function renderMovieCart(id) {
   modalContent.innerHTML = `<div class="modal__cartContainer">
   <div class="modal__movie-content">
   <div class="modal__poster">
-  <img class="modal__images" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="Poster of: ${original_title}"/>
+  <img class="modal__images" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster of: ${original_title}"/>
   </div>
   <div class="modal__description">
   <h2 class="modal__header">${original_title}</h2>
