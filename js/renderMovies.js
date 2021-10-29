@@ -56,10 +56,12 @@ function renderMovies(movie) {
         .join(", ");
 
       let relaseYear = release_date.substring(0, 4);
-      container.innerHTML += `<li class="movies-item">
-  <div class="movies-poster">
-    <img class="movies-image" src="http://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
-  </div>
+      container.innerHTML += `<div class="movies-cart">
+      <ul class="movies-list">
+      <li class="movies-item">
+      <div class="movies-poster">
+      <img class="movies-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
+      </div>
 
   <div class="description">
     <h2 class="description-title">${original_title}</h2>
@@ -68,7 +70,9 @@ function renderMovies(movie) {
       ${relaseYear}</span>
     </p>
   </div>
-</li>`;
+</li>
+</ul>
+</div>`;
     }
   );
 }

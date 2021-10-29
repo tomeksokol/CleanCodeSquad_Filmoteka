@@ -1,4 +1,4 @@
-import { fetchFilms, renderMovies, totalPages, setFilms } from "./renderMovies";
+import { fetchFilms, renderMovies, totalPages } from "./renderMovies.js";
 const paginationEl = document.querySelector(".movie__pagination");
 const container = document.querySelector(".movie__container");
 let pagMarkup = "";
