@@ -70,7 +70,7 @@ function renderMovieCart(id) {
   <li class="modal__list-text-item">${id.vote_average}</li>
   <li class="modal__list-text-item">${id.vote_count}</li>
   <li class="modal__list-text-item">${id.popularity}</li>
-  <li class="modal__list-text-item">${id.genre_ids}</li>
+  <li class="modal__list-text-item">${id.genres[1].name}</li>
   </ul>
   </div>
   <h4 class="modal__about">About</h4>
