@@ -3,3 +3,4 @@
 import "./js/renderMovies.js";
 import "./js/searchMovies.js";
 import "./js/footer.js";
+import "./js/modal.js";
