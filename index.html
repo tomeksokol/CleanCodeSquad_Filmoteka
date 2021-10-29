@@ -49,39 +49,30 @@
       </div>
       <div class="search__result">
         Search result not successful. Enter the correct movie name and try again
-
       </div>
-  </header>
-  <main>
-
-
-
-    <section class="movie__gallery">
-      <div class="movie__container container"></div>
-      <div class="movie__pagination"></div>
-    </section>
-
-
-
- 
-
-
-
-
-  </main>
-  <!-- footer -->
-  <footer class="footer__page">
-    <div class="container">
-      <p class="footer__page-lead">
-        &COPY; 2021 | All Rights Reserved | Developed with
-        <span class="footer__page-dev">
-          <svg class="footer__page-icon" width="14px" height="13px">
-            <use href="./images/icons.svg#icon-heart"></use>
-          </svg>
-          by
-          <a href="#" class="footer__page-link link-style" data-modal-open>GoIT Students</a>
-        </span>
-      </p>
+    </header>
+    
+    <main>
+      <section class="movie__gallery">
+        <div class="movie__container container" data-modal-open></div>
+        <div class="movie__pagination"></div>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer class="footer__page">
+      <div class="container">
+        <p class="footer__page-lead">
+          &COPY; 2021 | All Rights Reserved | Developed with
+          <span class="footer__page-dev">
+            <svg class="footer__page-icon" width="14px" height="13px">
+              <use href="./images/icons.svg#icon-heart"></use>
+            </svg>
+            by
+            <a href="#" class="footer__page-link link-style" data-modal-open
+              >GoIT Students</a
+            >
+          </span>
+        </p>
     </div>
 
     
@@ -109,17 +100,25 @@
       </li>
     </ul>
 
-<!-- 
-        <div class="modal__buttons"><button class="modal__btn">add to watched</button><button class="modal__btn">add to queue</button></div> -->
       </div>
     </div>
     <script src="./js/modal.js"></script>
 
   </footer>
 
-  <div id="spinner"></div>
-  <!-- modal -->
-  <!-- <div class="modal"></div> -->
+    <div id="spinner"></div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content is-hidden" data-modal>
+    <span class="close">&times;</span>
+    <div class="modal-view">test test test</div>
+  </div>
+</div>
+
 
   <!-- footer-modal -->
   <!--  <div class="footer-modal is-hidden" data-modal>
@@ -131,8 +130,12 @@
 
   <!-- end footer modal -->
 
-  <script type="module" src="./js/renderMovies.js"></script>
-  <script type="module" src="./js/searchMovies.js"></script>
-</body>
+    <!-- end footer modal -->
+<!-- 
+    <script type="module" src="./index.js"></script> -->
+    <script type="module" src="./js/renderMovies.js"></script>
+    <script type="module" src="./js/searchMovies.js"></script>
+    <script type="module" src="./js/movieModalWindow.js"></script>
 
+  </body>
 </html>
