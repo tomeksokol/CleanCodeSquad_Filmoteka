@@ -1,74 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./sass/main.css" />
 
-    <title>Filmoteka</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./sass/main.css" />
 
-  <body>
-    <header class="header">
-      <div class="container">
-        <nav class="nav__container">
-          <div class="nav__logo">
-            <a href="./index.html">
-              <img
-                class="logo__img"
-                src="./images/logo.png"
-                alt="movie-logo"
-              />
-              <span class="logo__title">Filmoteka</span>
-            </a>
-          </div>
-          <div class="nav__list">
-            <ul class="navigation__list">
-              <li class="navigation__item navigation__item--accent">
-                <a class="navigation__link link" href="./index.html">Home</a>
-              </li>
-              <li class="navigation__item navigation__margin">
-                <a class="navigation__link link" href="./my-library.html">My Library</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div class="search__container">
-          <form class="search-form" id="search-form">
-            <input
-              class="input__box"
-              type="text"
-              name="searchQuery"
-              autocomplete="off"
-              placeholder="Searching movies..."
-            />
-            <button class="search__btn" type="submit" name="submitBtn">
-              <svg class="search__icon" width="12" height="12">
-                <use href="./images/icons.svg#icon-search_btn"></use>
+  <title>Filmoteka</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav__container">
+        <div class="nav__logo">
+          <a href="./index.html">
+            <img class="logo__img" src="./images/logo.png" alt="movie-logo" />
+            <span class="logo__title">Filmoteka</span>
+          </a>
+        </div>
+        <div class="nav__list">
+          <ul class="navigation__list">
+            <li class="navigation__item navigation__item--accent">
+              <a class="navigation__link link" href="./index.html">Home</a>
+            </li>
+            <li class="navigation__item navigation__margin">
+              <a class="navigation__link link" href="./my-library.html">My Library</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="search__container">
+        <form class="search-form" id="search-form">
+          <input class="input__box" type="text" name="searchQuery" autocomplete="off" placeholder="Searching movies..." />
+          <button class="search__btn" type="submit" name="submitBtn">
+            <svg class="search__icon" width="12" height="12">
+              <use href="./images/icons.svg#icon-search_btn"></use>
             </svg>
           </button>
         </form>
       </div>
       <div class="search__result">
         Search result not successful. Enter the correct movie name and try again
-
       </div>
     </header>
+    
     <main>
       <section class="movie__gallery">
         <div class="movie__container container" data-modal-open></div>
@@ -90,8 +73,38 @@
             >
           </span>
         </p>
+    </div>
+
+    
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal__window">
+    <button class="modal__close" data-modal-close><img width="30px" src="./images/close.svg" /></button>
+    <ul class="modal__list">
+      <li class="modal__item">
+        <img class="modal__img" src="./images/tomaszimg.jpg" alt="Tomasz" width="100px">
+        <h3 class="modal__name">Tomasz Sokół</h3>
+        <p class="modal__description">Team Leader</p>
+        <a class="modal__link" href="https://github.com/TomaszSokol">github</a>
+      </li>
+      <li class="modal__item">
+        <img class="modal__img" src="./images/michalimg.jpg" alt="Michał" width="100px">
+        <h3 class="modal__name">Michał Balicki</h3>
+        <p class="modal__description">Team member</p>
+        <a class="modal__link" href="https://github.com/MichalBielicki">github</a>
+      </li>
+      <li class="modal__item">
+        <img class="modal__img" src="./images/patrycjaimg.jpg" alt="Patrycja" width="100px">
+        <h3 class="modal__name">Patrycja Nowakowska</h3>
+        <p class="modal__description">Team member</p>
+        <a class="modal__link" href="https://github.com/PatrycjaNowakowska">github</a>
+      </li>
+    </ul>
+
       </div>
-    </footer>
+    </div>
+    <script src="./js/modal.js"></script>
+
+  </footer>
 
     <div id="spinner"></div>
 
@@ -104,17 +117,18 @@
     <span class="close">&times;</span>
     <div class="modal-view">test test test</div>
   </div>
-
 </div>
-   
 
-    <!-- footer-modal -->
-    <div class="footer-modal is-hidden" data-modal>
+
+  <!-- footer-modal -->
+  <!--  <div class="footer-modal is-hidden" data-modal>
       <div class="footer-modal__window">
         <ul class="footer-modal__list list"></ul>
       </div>
       <button type="button" class="footer-modal__btn" data-modal-close></button>
-    </div>
+    </div> -->
+
+  <!-- end footer modal -->
 
     <!-- end footer modal -->
 <!-- 

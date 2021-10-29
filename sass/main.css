@@ -479,4 +479,184 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 4;
+  -webkit-transition-property: opacity(1);
+  transition-property: opacity(1);
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08);
+          transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal__name {
+  font-size: 12px;
+}
+
+.modal__description {
+  font-size: 10px;
+}
+
+.modal__link {
+  font-size: 9px;
+}
+
+.modal__item {
+  padding: 6px;
+}
+
+.modal__window {
+  width: 280px;
+  height: 500px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.modal__close {
+  position: relative;
+  width: 30px;
+  cursor: pointer;
+  color: #ff6b01;
+  background: transparent;
+  border: none;
+  left: 120px;
+}
+
+.modal__btn {
+  background: transparent;
+  width: 136px;
+  height: 44px;
+  left: 527px;
+  top: 522px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.modal__btn:focus, .modal__btn:hover {
+  background-color: #ff6b01;
+  border: 1px solid #ff6b01;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .modal__name {
+    font-size: 14px;
+  }
+  .modal__description {
+    font-size: 11px;
+  }
+  .modal__link {
+    font-size: 10px;
+  }
+  .modal__window {
+    min-width: 400px;
+    min-height: 550px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .modal__close {
+    position: relative;
+    top: 4px;
+    background-color: transparent;
+    border: none;
+    color: #ff6b01;
+    z-index: 77;
+    left: 180px;
+  }
+  .modal__btn {
+    background: transparent;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 125px;
+    height: 44px;
+    line-height: 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+  }
+  .modal__btn:focus, .modal__btn:hover {
+    background-color: #ff6b01;
+    border: 1px solid #ff6b01;
+    color: #ffffff;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal__window {
+    width: 400px;
+    height: 530px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .modal__close {
+    position: relative;
+    top: 4px;
+    background-color: transparent;
+    border: none;
+    color: #ff6b01;
+    z-index: 77;
+    left: 170px;
+  }
+  .modal__btn {
+    background: transparent;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    width: 136px;
+    height: 44px;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .modal__btn:focus, .modal__btn:hover {
+    color: #ffffff;
+    background-color: #ff6b01;
+    border: 1px solid #ff6b01;
+    cursor: pointer;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px 1px 1px 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=main.css.map */
