@@ -10,6 +10,7 @@ galleryContainer.addEventListener("click", selectMovieCart);
 
 function selectMovieCart(event) {
   event.preventDefault();
+  modalContent.innerHTML = "";
   console.log(event.target.parentNode.parentNode);
   console.log(`Movie ID: ${event.target.parentNode.parentNode.dataset.id}`);
   modal.style.display = "block";
@@ -82,18 +83,18 @@ function renderMovieCart(id) {
   <div class="modal__text">
   <ul class="modal__list-text">
   <li class="modal__list-text-item">${vote_average} / ${vote_count}</li>
-  <li class="modal__list-text-item">${popularity}</li>
+  <li class="modal__list-text-item">${popularity.toFixed(1)}</li>
   <li class="modal__list-text-item title__accent">${original_title}</li>
   <li class="modal__list-text-item">${gen}</li>
   </ul>
   </div>
   </div>
   <h4 class="modal__about">About</h4>
-  <p>${overview}</p>
+  <p class="modal__overview">${overview}</p>
   </div>
   </div>
   <div class="modal__buttons-container">
-  <button class="modal__buttons btn-watched" type="submit" data-id="${id.id}">Add to watched</button>
+  <button class="modal__buttons btn-watched btn-modal-margin" type="submit" data-id="${id.id}">Add to watched</button>
   <button class="modal__buttons btn-queue" type="submit" data-id="${id.id}">Add to queue</button>
   </div>
   </div>`;
@@ -102,5 +103,6 @@ function renderMovieCart(id) {
   console.log("This is button watched ID: " + modalButtonWatched.dataset.id);
   console.log("This is button queue ID: " + modalButtonQueue.dataset.id);
 }
+
 
 export { renderMovieCart };
