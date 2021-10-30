@@ -16,17 +16,20 @@
 .modal-content {
   background-color: #ffffff;
   margin: 15% auto; /* 15% from the top and centered */
-  // padding: 20px;
+  padding: 0 20px 0 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  display: block;
+  text-align: right;
+  color: #000000;
+  font-size: 30px;
+  font-weight: normal;
+  margin-top: 18px;
+  margin-bottom: 16px;
 }
 
 .close:hover,

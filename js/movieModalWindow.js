@@ -70,6 +70,7 @@ function renderMovieCart(id) {
   </div>
   <div class="modal__description">
   <h2 class="modal__header">${original_title}</h2>
+  <div class="modal__scoring">
   <div class="modal__category">
   <ul class="modal__list">
   <li class="modal__list-item">Vote / Votes</li>
@@ -80,11 +81,12 @@ function renderMovieCart(id) {
   </div>
   <div class="modal__text">
   <ul class="modal__list-text">
-  <li class="modal__list-text-item">${vote_average}</li>
-  <li class="modal__list-text-item">${vote_count}</li>
+  <li class="modal__list-text-item">${vote_average} / ${vote_count}</li>
   <li class="modal__list-text-item">${popularity}</li>
+  <li class="modal__list-text-item title__accent">${original_title}</li>
   <li class="modal__list-text-item">${gen}</li>
   </ul>
+  </div>
   </div>
   <h4 class="modal__about">About</h4>
   <p>${overview}</p>

@@ -5,9 +5,41 @@
   .modal__poster {
     width: calc(100%);
     margin: 0 auto 30px;
-    padding: 48px 20px 0 20px;
+    // padding: 0 20px 0 20px;
   }
   .modal__images {
     width: 100%;
+    border-radius: 5px;
   }
+  .modal__header {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 1.150;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  .modal__scoring {
+    display: flex;
+    font-size: 12px;
+    font-weight: 500px;
+    line-height: 1.333;
+    margin-bottom: 20px;
+  }
+  .modal__category {
+    width: 70px;
+  }
+  .modal__text {
+    margin-left: 36px;
+  }
+  .modal__list {
+    color: #8C8C8C;
+  }
+  .title__accent {
+    text-transform: uppercase;
+  }
+  .modal__list-item, .modal__list-text-item {
+    margin-bottom: 10px;
+  }
+
 }
