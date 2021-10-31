@@ -246,3 +246,4 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
     }
   }
 }
+export { clearPaginationMarkup };
