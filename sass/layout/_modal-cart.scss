@@ -120,5 +120,42 @@
   .modal__description {
     flex-basis: 50%;
   }
- 
+  .modal__buttons {
+    width: 125px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal__header {
+    font-size: 30px;
+    line-height: 1.166;
+  }
+  .modal__scoring,
+  .modal__about,
+  .modal__overview {
+    font-size: 14px;
+  }
+  .modal__list-item > .modal__category-value {
+    left: 100px;
+  }
+  .vote-average {
+    width: 40px;
+    height: 18px;
+  }
+  .modal__buttons-container {
+    justify-content: flex-start;
+  }
+  .modal__buttons {
+    width: 136px;
+    font-size: 14px;
+  }
+  .btn-modal-margin {
+    margin-right: 16px;
+  }
+  .modal__poster {
+    max-height: 550px;
+  }
+  .modal__images {
+    height: 100%;
+  }
 }
