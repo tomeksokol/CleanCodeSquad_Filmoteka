@@ -1,4 +1,5 @@
-import { renderMovies, setFilms } from './renderMovies.js';
+import { renderMovies, setFilms } from "./renderMovies.js";
+import { clearPaginationMarkup } from "./pagination.js";
 
 const BASE_URL = "https://api.themoviedb.org/3/";
 const container = document.querySelector(".movie__container");
@@ -31,6 +32,7 @@ function searchFilms() {
 }
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  clearPaginationMarkup();
   if (form === "") {
     container.innerHTML = "";
     setFilms();
