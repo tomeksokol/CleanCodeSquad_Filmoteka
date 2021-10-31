@@ -1,6 +1,7 @@
 import { renderMovies, setFilms } from "./renderMovies.js";
 
 const galleryContainer = document.querySelector(".movie__container");
+console.log(galleryContainer);
 const modal = document.querySelector("#myModal");
 const closeBtn = document.querySelector(".close");
 const modalContent = document.querySelector(".modal-view");
@@ -10,36 +11,43 @@ galleryContainer.addEventListener("click", selectMovieCart);
 
 function selectMovieCart(event) {
   event.preventDefault();
-  console.log(event.target.parentNode.parentNode);
-  console.log(`Movie ID: ${event.target.parentNode.parentNode.dataset.id}`);
-  modal.style.display = "block";
-
-  function fetchMoiveId() {
-    let id = `${event.target.parentNode.parentNode.dataset.id}`;
-    console.log(id);
-    return fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
-    ).then((response) => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    });
-  }
-
-  function setMovieCard() {
-    fetchMoiveId()
-      .then((id) => {
-        renderMovieCart(id);
-      })
-      .catch((err) => console.log(err));
-  }
-
-  setMovieCard();
-
-  closeBtn.addEventListener("click", () => {
+  //function that disable modal window if you click in the gallerryContainer but not for movie cart
+  if (event.target.nodeName === "DIV") {
     modal.style.display = "none";
-  });
+    console.log("You have to click movie cart");
+  } else {
+    modalContent.innerHTML = "";
+    console.log(event.target.parentNode.parentNode);
+    console.log(`Movie ID: ${event.target.parentNode.parentNode.dataset.id}`);
+    modal.style.display = "block";
+
+    function fetchMoiveId() {
+      let id = `${event.target.parentNode.parentNode.dataset.id}`;
+      console.log(id);
+      return fetch(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
+      ).then((response) => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      });
+    }
+
+    function setMovieCard() {
+      fetchMoiveId()
+        .then((id) => {
+          renderMovieCart(id);
+        })
+        .catch((err) => console.log(err));
+    }
+
+    setMovieCard();
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  };
 }
 
 // function closing modal window when user click outside the modal
@@ -76,29 +84,21 @@ function renderMovieCart(id) {
   </div>
   <div class="modal__description">
   <h2 class="modal__header">${original_title}</h2>
-  <div class="modal__category">
+  <div class="modal__scoring">
   <ul class="modal__list">
-  <li class="modal__list-item">Vote / Votes</li>
-  <li class="modal__list-item">Popularity</li>
-  <li class="modal__list-item">Orginal Title</li>
-  <li class="modal__list-item">Genre</li>
-  </ul>
-  </div>
-  <div class="modal__text">
-  <ul class="modal__list-text">
-  <li class="modal__list-text-item">${vote_average}</li>
-  <li class="modal__list-text-item">${vote_count}</li>
-  <li class="modal__list-text-item">${popularity}</li>
-  <li class="modal__list-text-item">${gen}</li>
+  <li class="modal__list-item">Vote / Votes<span class="modal__category-value"><span class="vote-average">${vote_average}</span> / ${vote_count}</span></li>
+  <li class="modal__list-item">Popularity<span class="modal__category-value">${popularity.toFixed(1)}</span></li>
+  <li class="modal__list-item">Orginal Title<span class="modal__category-value">${original_title}</span></li>
+  <li class="modal__list-item">Genre<span class="modal__category-value">${gen}</span></li>
   </ul>
   </div>
   <h4 class="modal__about">About</h4>
-  <p>${overview}</p>
-  </div>
-  </div>
+  <p class="modal__overview">${overview}</p>
   <div class="modal__buttons-container">
-  <button class="modal__buttons btn-watched" type="submit" data-id="${id.id}">Add to watched</button>
+  <button class="modal__buttons btn-watched btn-modal-margin" type="submit" data-id="${id.id}">Add to watched</button>
   <button class="modal__buttons btn-queue" type="submit" data-id="${id.id}">Add to queue</button>
+  </div>
+  </div>
   </div>
   </div>`;
   const modalButtonWatched = document.querySelector(".btn-watched");
@@ -106,5 +106,6 @@ function renderMovieCart(id) {
   console.log("This is button watched ID: " + modalButtonWatched.dataset.id);
   console.log("This is button queue ID: " + modalButtonQueue.dataset.id);
 }
+
 
 export { renderMovieCart };
