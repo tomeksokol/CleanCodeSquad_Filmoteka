@@ -55,6 +55,19 @@ window.addEventListener("keydown", (ev) => {
   }
 });
 
+
+// add movieID to local storage
+const addToLocalStorage = function (name, value) {
+  // Get the existing data
+  let existing = localStorage.getItem(name);
+  existing = existing ? JSON.parse(existing) : [];
+  // Add new data to localStorage
+  existing.push(value);
+  // Save back to localStorage
+  localStorage.setItem(name, JSON.stringify(existing));
+};
+
+
 function renderMovieCart(id) {
   const {
     poster_path,
@@ -105,6 +118,21 @@ function renderMovieCart(id) {
   const modalButtonQueue = document.querySelector(".btn-queue");
   console.log("This is button watched ID: " + modalButtonWatched.dataset.id);
   console.log("This is button queue ID: " + modalButtonQueue.dataset.id);
+
+  modalButtonWatched.addEventListener("click", function () {
+    addToLocalStorage("watchedMovieIDs", modalButtonWatched.dataset.id);
+  });
+
+  modalButtonQueue.addEventListener("click", function () {
+    addToLocalStorage("queuedMovieIDs", modalButtonQueue.dataset.id);
+  });
+  
+  const savedWatchedMovies = localStorage.getItem("watchedMovieIDs");
+  console.log(savedWatchedMovies);
+
+  const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
+  console.log(savedQueuedMovies);
 }
+  
 
 export { renderMovieCart };
