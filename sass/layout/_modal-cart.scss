@@ -1,0 +1,13 @@
+@media screen and (min-width: 320px) {
+  .modal__movie-content {
+    display: block;
+  }
+  .modal__poster {
+    width: calc(100%);
+    margin: 0 auto 30px;
+    padding: 48px 20px 0 20px;
+  }
+  .modal__images {
+    width: 100%;
+  }
+}

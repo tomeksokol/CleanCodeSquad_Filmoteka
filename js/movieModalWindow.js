@@ -56,13 +56,26 @@ window.addEventListener("keydown", (ev) => {
 });
 
 function renderMovieCart(id) {
-  // let id = { id, original_title, poster_path, genre_ids, popularity, overview, vote_average, vote_count };
+  const {
+    poster_path,
+    genres,
+    vote_average,
+    vote_count,
+    popularity,
+    original_title,
+    overview,
+  } = id;
+  let gen = genres
+    .map((genre) => genre.name)
+    .slice(0, 3)
+    .join(", ");
   modalContent.innerHTML = `<div class="modal__cartContainer">
+  <div class="modal__movie-content">
   <div class="modal__poster">
-  <img class="modal__images" src="https://image.tmdb.org/t/p/w300${id.poster_path}" alt="Poster of: ${id.original_title}"/>
+  <img class="modal__images" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster of: ${original_title}"/>
   </div>
   <div class="modal__description">
-  <h2 class="modal__header">${id.original_title}</h2>
+  <h2 class="modal__header">${original_title}</h2>
   <div class="modal__category">
   <ul class="modal__list">
   <li class="modal__list-item">Vote / Votes</li>
@@ -73,14 +86,15 @@ function renderMovieCart(id) {
   </div>
   <div class="modal__text">
   <ul class="modal__list-text">
-  <li class="modal__list-text-item">${id.vote_average}</li>
-  <li class="modal__list-text-item">${id.vote_count}</li>
-  <li class="modal__list-text-item">${id.popularity}</li>
-  <li class="modal__list-text-item">${id.genres[1].name}</li>
+  <li class="modal__list-text-item">${vote_average}</li>
+  <li class="modal__list-text-item">${vote_count}</li>
+  <li class="modal__list-text-item">${popularity}</li>
+  <li class="modal__list-text-item">${gen}</li>
   </ul>
   </div>
   <h4 class="modal__about">About</h4>
-  <p>${id.overview}</p>
+  <p>${overview}</p>
+  </div>
   </div>
   <div class="modal__buttons-container">
   <button class="modal__buttons btn-watched" type="submit" data-id="${id.id}">Add to watched</button>
@@ -92,3 +106,5 @@ function renderMovieCart(id) {
   console.log("This is button watched ID: " + modalButtonWatched.dataset.id);
   console.log("This is button queue ID: " + modalButtonQueue.dataset.id);
 }
+
+export { renderMovieCart };
