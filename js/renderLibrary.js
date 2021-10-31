@@ -1,3 +1,4 @@
+import loaderToggle from "./spinner.js";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const libraryContainer = document.querySelector(".library__container");
 let movieId = [];
@@ -15,9 +16,11 @@ async function fetchFilms() {
 }
 
 async function setFilms() {
+  loaderToggle();
   fetchFilms()
     .then((movie) => {
       renderMovies(movie);
+      loaderToggle();
     })
     .catch((err) => {
       console.log(err);

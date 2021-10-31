@@ -1,7 +1,5 @@
-import { fetchFilms, renderMovies, totalPages } from "./renderMovies.js";
 import loaderToggle from "./spinner.js";
-const paginationEl = document.querySelector(".movie__pagination");
-const container = document.querySelector(".movie__container");
+const paginationEl = document.querySelector(".library__pagination");
 
 const mediaQuery = window.matchMedia("(max-width: 767px)");
 
@@ -9,22 +7,11 @@ let pagMarkup = "";
 let currentPage = 0;
 const BTNS_ON_PAGE = 5;
 
-fetchFilms(currentPage + 1)
-  .then((data) => {
-    renderPaginationMarkup(totalPages);
-    renderMovies(data);
-  })
-  .then(setActiveBtn);
-
 paginationEl.addEventListener("click", (event) => {
   if (event.target.nodeName === "BUTTON") {
     onBtnsClick(event);
   }
 });
-
-function clearPaginationMarkup() {
-  paginationEl.innerHTML = "";
-}
 
 function setActiveBtn(event) {
   const numberBtnsEl = document.querySelectorAll("button.button-number");
@@ -72,7 +59,7 @@ function onBtnsClick(event) {
   const lastPage = Number(
     paginationBtnsList[paginationBtnsList.length - 1].textContent
   );
-
+  setActiveBtn(event);
   loaderToggle();
 
   if (Number(event.target.textContent)) {
@@ -84,33 +71,10 @@ function onBtnsClick(event) {
   } else {
     return;
   }
-  clearPaginationMarkup();
-  clearMovieContainer();
-
-  fetchFilms(currentPage + 1)
-    .then((data) => {
-      renderPaginationMarkup(totalPages);
-      renderMovies(data);
-    })
-    .then(
-      setTimeout(() => {
-        setActiveBtn(event);
-      }, 1500)
-    )
-    .then(loaderToggle)
-    .then(goToTop);
+  loaderToggle();
 }
 
-function clearMovieContainer() {
-  container.innerHTML = "";
-}
-
-function goToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
+renderPaginationMarkup(1000);
 
 function renderPaginationMarkup(length) {
   if (mediaQuery.matches) {

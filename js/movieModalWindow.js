@@ -57,6 +57,12 @@ window.addEventListener("click", (ev) => {
   }
 });
 
+window.addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape") {
+    modal.style.display = "none";
+  }
+});
+
 function renderMovieCart(id) {
   const {
     poster_path,
