@@ -82,7 +82,7 @@ function renderMovieCart(id) {
   </div>
   <div class="modal__text">
   <ul class="modal__list-text">
-  <li class="modal__list-text-item">${vote_average} / ${vote_count}</li>
+  <li class="modal__list-text-item"><span class="vote-average">${vote_average}</span> / ${vote_count}</li>
   <li class="modal__list-text-item">${popularity.toFixed(1)}</li>
   <li class="modal__list-text-item title__accent">${original_title}</li>
   <li class="modal__list-text-item">${gen}</li>
