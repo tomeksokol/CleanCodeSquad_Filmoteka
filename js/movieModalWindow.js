@@ -1,4 +1,5 @@
 import { renderMovies, setFilms } from "./renderMovies.js";
+import { addToLocalStorage } from "./addToLocalStorage.js"
 
 const galleryContainer = document.querySelector(".movie__container");
 console.log(galleryContainer);
@@ -105,6 +106,20 @@ function renderMovieCart(id) {
   const modalButtonQueue = document.querySelector(".btn-queue");
   console.log("This is button watched ID: " + modalButtonWatched.dataset.id);
   console.log("This is button queue ID: " + modalButtonQueue.dataset.id);
+
+  modalButtonWatched.addEventListener("click", function () {
+    addToLocalStorage("watchedMovieIDs", modalButtonWatched.dataset.id);
+  });
+
+  modalButtonQueue.addEventListener("click", function () {
+    addToLocalStorage("queuedMovieIDs", modalButtonQueue.dataset.id);
+  });
+
+  const savedWatchedMovies = localStorage.getItem("watchedMovieIDs");
+  console.log(savedWatchedMovies);
+
+  const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
+  console.log(savedQueuedMovies);
 }
 
 
