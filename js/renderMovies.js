@@ -61,7 +61,7 @@ function renderMovies(movie) {
       if (poster_path) {
         poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
       } else {
-        poster = "https://via.placeholder.com/450x680";
+        poster = "./images/poster-placeholder.png";
       }
       let relaseYear = release_date.substring(0, 4);
       container.innerHTML += `<div class="movies-cart">
@@ -70,7 +70,7 @@ function renderMovies(movie) {
       <div class="movies-poster">
       <img class="movies-image" src=${poster} alt="${original_title}"/>
       <div class="middle">
-      <div><img class="movies-preview" src="../images/eye.svg"/></div>
+      <div><img class="movies-preview" src="./images/eye.svg"/></div>
       </div>
       </div>
 
