@@ -71,18 +71,43 @@
   <div class="loader-overlay">
     <div class="loader"></div>
   </div>
-  <!-- modal -->
-  <div class="modal"></div>
-
-  <!-- footer-modal -->
-  <div class="footer-modal is-hidden" data-modal>
-    <div class="footer-modal__window">
-      <ul class="footer-modal__list list"></ul>
+  
+  <!-- The Modal Team-Footer Window -->
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal__window">
+    <button class="modal__close" data-modal-close><img width="30px" src="./images/close.svg" /></button>
+    <ul class="modal__team-list">
+      <li class="modal__item">
+        <img class="modal__img" src="./images/tomaszimg.jpg" alt="Tomasz" width="100px" height="100px">
+        <h3 class="modal__name">Tomasz Sokół</h3>
+        <p class="modal__description">Team Leader</p>
+        <a class="modal__link" href="https://github.com/tomeksokol" target="_blank"><img class="modal__git" src="./images/github.svg" width="12" height="12"/>github</a>
+      </li>
+      <li class="modal__item">
+        <img class="modal__img" src="./images/michalimg.jpg" alt="Michał" width="100px" height="100px">
+        <h3 class="modal__name">Michał Balicki</h3>
+        <p class="modal__description">Team member</p>
+        <a class="modal__link" href="https://github.com/MichalBielicki" target="_blank"><img class="modal__git" src="./images/github.svg" width="12" height="12"/>github</a>
+      </li>
+      <li class="modal__item">
+        <img class="modal__img" src="./images/patrycjaimg.jpg" alt="Patrycja" width="100px" height="100px">
+        <h3 class="modal__name">Patrycja Nowakowska</h3>
+        <p class="modal__description">Team member</p>
+        <a class="modal__link" href="https://github.com/PatrycjaNowakowska" target="_blank"><img class="modal__git" src="./images/github.svg" width="12" height="12"/>github</a>
+      </li>
+    </ul>
+      </div>
     </div>
-    <button type="button" class="footer-modal__btn" data-modal-close></button>
+    <script src="./js/modal.js"></script>
+  </footer>
+
+  <!-- The Modal Movie Cart-->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="modal-view"></div>
   </div>
 
-  <!-- end footer modal -->
   <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
   <script type="module" src="./js/renderLibrary.js"></script>
   <script type="module" src="./js/spinner.js"></script>
