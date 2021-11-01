@@ -38,7 +38,7 @@ function searchFilms() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   clearPaginationMarkup();
-  if (form === "") {
+  if (input.value === "") {
     container.innerHTML = "";
     setFilms();
     searchResult.style.display = "none";

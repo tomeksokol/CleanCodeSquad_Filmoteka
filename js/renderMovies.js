@@ -26,7 +26,6 @@ function setFilms() {
       console.log(err);
     });
 }
-setFilms();
 
 async function fetchGenres() {
   const response = await fetch(
@@ -48,7 +47,7 @@ function setGenres() {
     });
 }
 setGenres();
-
+setFilms();
 function renderMovies(movie) {
   totalPages = movie.total_pages;
   movie.results.forEach(

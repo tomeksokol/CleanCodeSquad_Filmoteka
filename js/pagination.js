@@ -10,9 +10,8 @@ let currentPage = 0;
 const BTNS_ON_PAGE = 5;
 
 fetchFilms(currentPage + 1)
-  .then((data) => {
+  .then(() => {
     renderPaginationMarkup(totalPages);
-    renderMovies(data);
   })
   .then(setActiveBtn);
 
