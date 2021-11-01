@@ -57,13 +57,18 @@ function renderMovies(movie) {
         .filter((genre) => genre_ids.includes(genre.id))
         .map((genre) => genre.name)
         .join(", ");
-
+      let poster = "";
+      if (poster_path) {
+        poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+      } else {
+        poster = "https://via.placeholder.com/450x680";
+      }
       let relaseYear = release_date.substring(0, 4);
       container.innerHTML += `<div class="movies-cart">
       <ul class="movies-list">
       <li class="movies-item" data-id="${id}">
       <div class="movies-poster">
-      <img class="movies-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"/>
+      <img class="movies-image" src=${poster} alt="${original_title}"/>
       </div>
 
   <div class="description">
