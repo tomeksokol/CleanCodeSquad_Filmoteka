@@ -3,7 +3,7 @@ import loaderToggle from "./spinner.js";
 import { addToLocalStorage } from "./addToLocalStorage.js";
 
 const galleryContainer = document.querySelector(".movie__container");
-console.log(galleryContainer);
+// console.log(galleryContainer);
 const modal = document.querySelector("#myModal");
 const closeBtn = document.querySelector(".close");
 const modalContent = document.querySelector(".modal-view");
@@ -16,16 +16,16 @@ function selectMovieCart(event) {
   //function that disable modal window if you click in the gallerryContainer but not for movie cart
   if (event.target.nodeName === "DIV") {
     modal.style.display = "none";
-    console.log("You have to click movie cart");
+    // console.log("You have to click movie cart");
   } else {
     // modalContent.innerHTML = "";
-    console.log(event.target.parentNode.parentNode);
-    console.log(`Movie ID: ${event.target.parentNode.parentNode.dataset.id}`);
+    // console.log(event.target.parentNode.parentNode);
+    // console.log(`Movie ID: ${event.target.parentNode.parentNode.dataset.id}`);
     modal.style.display = "block";
 
     async function fetchMoiveId() {
       let id = `${event.target.parentNode.parentNode.dataset.id}`;
-      console.log(id);
+      // console.log(id);
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
       );
@@ -115,8 +115,8 @@ function renderMovieCart(id) {
   </div>`;
   const modalButtonWatched = document.querySelector(".btn-watched");
   const modalButtonQueue = document.querySelector(".btn-queue");
-  console.log("This is button watched ID: " + modalButtonWatched.dataset.id);
-  console.log("This is button queue ID: " + modalButtonQueue.dataset.id);
+  // console.log("This is button watched ID: " + modalButtonWatched.dataset.id);
+  // console.log("This is button queue ID: " + modalButtonQueue.dataset.id);
 
   modalButtonWatched.addEventListener("click", function () {
     addToLocalStorage("watchedMovieIDs", modalButtonWatched.dataset.id);
@@ -127,10 +127,10 @@ function renderMovieCart(id) {
   });
 
   const savedWatchedMovies = localStorage.getItem("watchedMovieIDs");
-  console.log(savedWatchedMovies);
+  // console.log(savedWatchedMovies);
 
   const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
-  console.log(savedQueuedMovies);
+  // console.log(savedQueuedMovies);
 }
 
 export { renderMovieCart };
