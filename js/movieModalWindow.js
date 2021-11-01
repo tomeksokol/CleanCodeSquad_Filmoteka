@@ -83,10 +83,17 @@ function renderMovieCart(id) {
     .map((genre) => genre.name)
     .slice(0, 3)
     .join(", ");
+
+    let poster = "";
+    if (poster_path) {
+      poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+    } else {
+      poster = "./images/poster-placeholder.png";
+    }
   modalContent.innerHTML = `<div class="modal__cartContainer">
   <div class="modal__movie-content">
   <div class="modal__poster">
-  <img class="modal__images" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster of: ${original_title}"/>
+  <img class="modal__images" src=${poster} alt="Poster of: ${original_title}"/>
   </div>
   <div class="modal__description">
   <h2 class="modal__header">${original_title}</h2>
