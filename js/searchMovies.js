@@ -1,5 +1,6 @@
 import { renderMovies, setFilms } from "./renderMovies.js";
 import { clearPaginationMarkup } from "./pagination.js";
+import loaderToggle from "./spinner.js";
 
 const BASE_URL = "https://api.themoviedb.org/3/";
 const container = document.querySelector(".movie__container");
@@ -19,12 +20,16 @@ async function fetchSearchFilms(title) {
   return await response.json();
 }
 function searchFilms() {
+  loaderToggle();
   fetchSearchFilms(input.value)
     .then((movie) => {
+      loaderToggle();
       if (movie.results.length === 0) {
         searchResult.style.display = "block";
+      } else {
+        container.innerHTML = "";
+        renderMovies(movie);
       }
-      renderMovies(movie);
     })
     .catch((err) => {
       console.log(err);
@@ -38,7 +43,6 @@ form.addEventListener("submit", (e) => {
     setFilms();
     searchResult.style.display = "none";
   } else {
-    container.innerHTML = "";
     searchFilms();
     searchResult.style.display = "none";
   }
