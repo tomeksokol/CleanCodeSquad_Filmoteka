@@ -6,15 +6,16 @@
 
 .modal {
   &__name {
-    font-size: 12px;
+    font-size: 14px;
+    color: #000000;
   }
 
   &__description {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   &__link {
-    font-size: 9px;
+    font-size: 12px;
   }
   &__item {
     padding: 6px;
@@ -60,6 +61,17 @@
     border: 1px solid #ff6b01;
     color: #ffffff;
     cursor: pointer;
+  }
+  &__img {
+    border-radius: 50px;
+    border: 5px solid #ff6b01;
+    box-shadow: 2px -3px 20px 6px rgba(44,39,39,0.62);
+    -webkit-box-shadow: 2px -3px 20px 6px rgba(44,39,39,0.62);
+    -moz-box-shadow: 2px -3px 20px 6px rgba(44,39,39,0.62);
+  }
+  &__git {
+    display: inline-block;
+    margin-right: 8px;
   }
 }
 
