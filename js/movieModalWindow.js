@@ -1,5 +1,6 @@
 import { renderMovies, setFilms } from "./renderMovies.js";
-import { addToLocalStorage } from "./addToLocalStorage.js"
+import loaderToggle from "./spinner.js";
+import { addToLocalStorage } from "./addToLocalStorage.js";
 
 const galleryContainer = document.querySelector(".movie__container");
 console.log(galleryContainer);
@@ -17,28 +18,29 @@ function selectMovieCart(event) {
     modal.style.display = "none";
     console.log("You have to click movie cart");
   } else {
-    modalContent.innerHTML = "";
+    // modalContent.innerHTML = "";
     console.log(event.target.parentNode.parentNode);
     console.log(`Movie ID: ${event.target.parentNode.parentNode.dataset.id}`);
     modal.style.display = "block";
 
-    function fetchMoiveId() {
+    async function fetchMoiveId() {
       let id = `${event.target.parentNode.parentNode.dataset.id}`;
       console.log(id);
-      return fetch(
+      const response = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
-      ).then((response) => {
-        if (!response.ok) {
-          throw new Error(response.status);
-        }
-        return response.json();
-      });
+      );
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return await response.json();
     }
 
     function setMovieCard() {
+      loaderToggle();
       fetchMoiveId()
         .then((id) => {
           renderMovieCart(id);
+          loaderToggle();
         })
         .catch((err) => console.log(err));
     }
@@ -47,20 +49,23 @@ function selectMovieCart(event) {
 
     closeBtn.addEventListener("click", () => {
       modal.style.display = "none";
+      modalContent.innerHTML = "";
     });
-  };
+  }
 }
 
 // function closing modal window when user click outside the modal
 window.addEventListener("click", (ev) => {
   if (ev.target === modal) {
     modal.style.display = "none";
+    modalContent.innerHTML = "";
   }
 });
 
 window.addEventListener("keydown", (ev) => {
   if (ev.key === "Escape") {
     modal.style.display = "none";
+    modalContent.innerHTML = "";
   }
 });
 
@@ -88,7 +93,9 @@ function renderMovieCart(id) {
   <div class="modal__scoring">
   <ul class="modal__list">
   <li class="modal__list-item">Vote / Votes<span class="modal__category-value"><span class="vote-average">${vote_average}</span> / ${vote_count}</span></li>
-  <li class="modal__list-item">Popularity<span class="modal__category-value">${popularity.toFixed(1)}</span></li>
+  <li class="modal__list-item">Popularity<span class="modal__category-value">${popularity.toFixed(
+    1
+  )}</span></li>
   <li class="modal__list-item">Orginal Title<span class="modal__category-value">${original_title}</span></li>
   <li class="modal__list-item">Genre<span class="modal__category-value">${gen}</span></li>
   </ul>
@@ -96,8 +103,12 @@ function renderMovieCart(id) {
   <h4 class="modal__about">About</h4>
   <p class="modal__overview">${overview}</p>
   <div class="modal__buttons-container">
-  <button class="modal__buttons btn-watched btn-modal-margin" type="submit" data-id="${id.id}">Add to watched</button>
-  <button class="modal__buttons btn-queue" type="submit" data-id="${id.id}">Add to queue</button>
+  <button class="modal__buttons btn-watched btn-modal-margin" type="submit" data-id="${
+    id.id
+  }">Add to watched</button>
+  <button class="modal__buttons btn-queue" type="submit" data-id="${
+    id.id
+  }">Add to queue</button>
   </div>
   </div>
   </div>
@@ -121,6 +132,5 @@ function renderMovieCart(id) {
   const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
   console.log(savedQueuedMovies);
 }
-
 
 export { renderMovieCart };

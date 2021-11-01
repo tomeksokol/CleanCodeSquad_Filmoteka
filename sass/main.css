@@ -672,12 +672,6 @@ a {
   .btn-modal-margin {
     margin-right: 16px;
   }
-  .modal__poster {
-    max-height: 550px;
-  }
-  .modal__images {
-    height: 100%;
-  }
 }
 
 .backdrop {
@@ -994,5 +988,4 @@ ul.library__pagination button.active-pagination {
   border-radius: 5px;
   color: #ffffff;
 }
-
 /*# sourceMappingURL=main.css.map */
