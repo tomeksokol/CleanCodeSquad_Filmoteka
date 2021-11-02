@@ -25,7 +25,7 @@ function selectMovieCart(event) {
 
     async function fetchMoiveId() {
       let id = `${event.target.parentNode.parentNode.dataset.id}`;
-      // console.log(id);
+       //console.log(id);
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
       );
