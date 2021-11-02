@@ -122,8 +122,6 @@ function renderMovieCart(id) {
   </div>`;
   const modalButtonWatched = document.querySelector(".btn-watched");
   const modalButtonQueue = document.querySelector(".btn-queue");
-  // console.log("This is button watched ID: " + modalButtonWatched.dataset.id);
-  // console.log("This is button queue ID: " + modalButtonQueue.dataset.id);
 
   modalButtonWatched.addEventListener("click", function () {
     addToLocalStorage("watchedMovieIDs", modalButtonWatched.dataset.id);
@@ -133,11 +131,7 @@ function renderMovieCart(id) {
     addToLocalStorage("queuedMovieIDs", modalButtonQueue.dataset.id);
   });
 
-  const savedWatchedMovies = localStorage.getItem("watchedMovieIDs");
-  // console.log(savedWatchedMovies);
-
-  const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
-  // console.log(savedQueuedMovies);
+  
 }
 
 export { renderMovieCart };
