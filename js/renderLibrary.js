@@ -76,3 +76,16 @@ function getQueuedMovies() {
 }
 
 queuedBtn.addEventListener("click", getQueuedMovies);
+
+//active buttons
+watchedBtn.addEventListener("click", watchedActiv);
+queuedBtn.addEventListener("click", queueActiv);
+
+function watchedActiv() {
+  watchedBtn.classList.add("activBtn");
+  queuedBtn.classList.remove("activBtn");
+}
+function queueActiv() {
+  watchedBtn.classList.remove("activBtn");
+  queuedBtn.classList.add("activBtn");
+}

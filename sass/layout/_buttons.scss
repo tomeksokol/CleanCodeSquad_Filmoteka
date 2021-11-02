@@ -40,6 +40,12 @@
   margin-right: 20px;
 }
 
+.activBtn {
+  background: #ff6b01;
+  border: transparent;
+  -webkit-box-shadow: 5px 3px 35px 14px rgba(255, 107, 1, 0.53);
+  box-shadow: 5px 3px 35px 14px rgba(255, 107, 1, 0.53);
+}
 @media screen and (min-width: 768px) {
   .btn {
     width: 136px;
