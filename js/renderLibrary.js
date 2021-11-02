@@ -7,9 +7,6 @@ const galleryContainer = document.querySelector(".library__container");
 const modal = document.querySelector("#myModal");
 const closeBtn = document.querySelector(".close");
 
-
-
-
 async function fetchMovie(id) {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
@@ -73,7 +70,7 @@ function selectMovieCart(event) {
 
     async function fetchMoiveId() {
       let id = `${event.target.parentNode.parentNode.dataset.id}`;
-       console.log(id);
+      //console.log(id);
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
       );
@@ -101,7 +98,6 @@ function selectMovieCart(event) {
     });
   }
 }
-
 
 function renderMovieCartinLibrary(movie) {
   const {
@@ -175,24 +171,40 @@ function renderMovieID(id) {
   });
 }
 
+let savedWatchedMovies = localStorage.getItem("watchedMovieIDs");
 function getwatchedMovies() {
   libraryContainer.innerHTML = "";
-  const savedWatchedMovies = localStorage.getItem("watchedMovieIDs");
   let watchedMovies = JSON.parse(savedWatchedMovies);
   //console.log(watchedMovies);
-  watchedMovies.forEach(renderMovieID);
+  if (watchedMovies === null) {
+    //console.log("local storage is empty!");
+    libraryContainer.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
+            <use href="./images/icons.svg#icon-heart"></use>
+          </svg>
+  </div>`;
+  } else {
+    libraryContainer.innerHTML = "";
+    watchedMovies.forEach(renderMovieID);
+    //console.log(watchedMovies);
+  }
 }
 
 watchedBtn.addEventListener("click", getwatchedMovies);
 
 const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
 function getQueuedMovies() {
-  libraryContainer.innerHTML = "";
   let queuedMovies = JSON.parse(savedQueuedMovies);
-  //console.log(queuedMovies);
-  queuedMovies.forEach(renderMovieID);
+  if (queuedMovies === null) {
+    //console.log("local storage is empty!");
+    libraryContainer.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
+            <use href="./images/icons.svg#icon-heart"></use>
+          </svg>
+  </div>`;
+  } else {
+    libraryContainer.innerHTML = "";
+    //console.log(queuedMovies);
+    queuedMovies.forEach(renderMovieID);
+  }
 }
 
 queuedBtn.addEventListener("click", getQueuedMovies);
-
-
