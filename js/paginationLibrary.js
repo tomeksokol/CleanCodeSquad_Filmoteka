@@ -1,87 +1,106 @@
 import loaderToggle from "./spinner.js";
 const paginationEl = document.querySelector(".library__pagination");
+const container = document.querySelector(".library__container");
+const modalButtonWatched = document.querySelector(".watched");
+const modalButtonQueue = document.querySelector(".queue");
+const closeBtn = document.querySelector(".close");
+const modal = document.querySelector("#myModal");
 
 const mediaQuery = window.matchMedia("(max-width: 767px)");
 
 let pagMarkup = "";
 let currentPage = 0;
+let watchedLibreryArray = [];
+let quntityOfPages = 1;
+let page = "";
+const FILMS_ON_PAGE = 20;
 const BTNS_ON_PAGE = 5;
+const WATCHEDKEY = "watchedMovieIDs";
+const QUEUEKEY = "queuedMovieIDs";
+
+createPagination();
 
 paginationEl.addEventListener("click", (event) => {
   if (event.target.nodeName === "BUTTON") {
     onBtnsClick(event);
   }
 });
+modalButtonWatched.addEventListener("click", () => {
+  currentPage = 0;
+  quntityOfPages = 1;
+  watchedLibreryArray = [];
+  clearPaginationMarkup();
+  createPagination();
+});
+modalButtonQueue.addEventListener("click", () => {
+  currentPage = 0;
+  quntityOfPages = 1;
+  watchedLibreryArray = [];
+  clearPaginationMarkup();
+  createPagination();
+});
+closeBtn.addEventListener("click", () => {
+  quntityOfPages = 1;
+  watchedLibreryArray = [];
+  clearPaginationMarkup();
+  createPagination();
+});
+modal.addEventListener("click", () => {
+  quntityOfPages = 1;
+  watchedLibreryArray = [];
+  clearPaginationMarkup();
+  createPagination();
+});
+window.addEventListener("keyup", () => {
+  quntityOfPages = 1;
+  watchedLibreryArray = [];
+  clearPaginationMarkup();
+  createPagination();
+});
 
-function setActiveBtn(event) {
-  const numberBtnsEl = document.querySelectorAll("button.button-number");
-  const btnsArray = [...numberBtnsEl];
-
-  if (currentPage === 0) {
-    numberBtnsEl[0].classList.add("active-pagination");
-  } else {
-    let targetBtnValue = 0;
-
-    if (event.target.textContent === "→" || event.target.textContent === "←") {
-      targetBtnValue = currentPage + 1;
-    } else {
-      targetBtnValue = Number(event.target.textContent);
-    }
-
-    btnsArray.find((btn, index) => {
-      if (btn.classList.contains("active-pagination")) {
-        numberBtnsEl[index].classList.remove("active-pagination");
-      }
-    });
-
-    btnsArray.find((btn, index) => {
-      if (Number(btn.textContent) === targetBtnValue) {
-        numberBtnsEl[index].classList.add("active-pagination");
-      }
-    });
-  }
-}
-
-function onNumberBtnClick(event) {
-  currentPage = Number(event.target.textContent) - 1;
-}
-
-function onRightBtnClick() {
-  currentPage += 1;
-}
-
-function onLeftBtnClick() {
-  currentPage -= 1;
-}
-
-function onBtnsClick(event) {
-  const paginationBtnsList = document.querySelectorAll("button.button-number");
-  const lastPage = Number(
-    paginationBtnsList[paginationBtnsList.length - 1].textContent
-  );
-  setActiveBtn(event);
-  loaderToggle();
-
-  if (Number(event.target.textContent)) {
-    onNumberBtnClick(event);
-  } else if (event.target.textContent === "→" && currentPage < lastPage - 1) {
-    onRightBtnClick();
-  } else if (event.target.textContent === "←" && currentPage > 0) {
-    onLeftBtnClick();
-  } else {
+function choseLibrary(chosedBtn) {
+  if (
+    chosedBtn === "" ||
+    (localStorage.getItem(QUEUEKEY) === null &&
+      localStorage.getItem(WATCHEDKEY) === null)
+  ) {
     return;
+  } else if (chosedBtn === WATCHEDKEY) {
+    if (localStorage.getItem(WATCHEDKEY) === "[]") {
+      return;
+    }
+    watchedLibreryArray = JSON.parse(localStorage.getItem(WATCHEDKEY));
+  } else {
+    if (localStorage.getItem(QUEUEKEY) === "[]") {
+      return;
+    }
+    watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUEKEY));
   }
-  loaderToggle();
 }
 
-renderPaginationMarkup(1000);
+function calculateQuntityOfPages(filmsPerPage) {
+  if (watchedLibreryArray.length > filmsPerPage) {
+    quntityOfPages = Math.ceil(watchedLibreryArray.length / filmsPerPage);
+  }
+}
+
+function findActiveBtn() {
+  if (modalButtonWatched.classList.contains("activBtn")) {
+    page = WATCHEDKEY;
+  } else if (modalButtonQueue.classList.contains("activBtn")) {
+    page = QUEUEKEY;
+  }
+}
 
 function renderPaginationMarkup(length) {
-  if (mediaQuery.matches) {
+  if (watchedLibreryArray.length === 0 || watchedLibreryArray === []) {
+    return;
+  } else if (mediaQuery.matches) {
     renderPaginationMarkupForMobile(length);
   } else {
     renderPaginationMarkupForTabletAndDesktop(length);
   }
+
   paginationEl.insertAdjacentHTML("beforeend", pagMarkup);
 }
 
@@ -164,49 +183,133 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
       }
 
       pagMarkup += `<li class='pagination-item'><button class="more-pages">...</button></li>
-        <li class='pagination-item'><button class="button-number">${length}</button></li>
-        <li class="pagination-item"><button class="right">&#8594</button></li>`;
+      <li class='pagination-item'><button class="button-number">${length}</button></li>
+      <li class="pagination-item"><button class="right">&#8594</button></li>`;
     } else if (
       currentPage + 1 >= BTNS_ON_PAGE &&
       currentPage + 1 < length - 3
     ) {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
-        <li class='pagination-item'><button class="button-number">1</button></li>
-        <li class='pagination-item'><button class="more-pages">...</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          currentPage - 1
-        }</button></li>
-        <li class='pagination-item'><button class="button-number">${currentPage}</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          currentPage + 1
-        }</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          currentPage + 2
-        }</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          currentPage + 3
-        }</button></li>
-        <li class='pagination-item'><button class="more-pages">...</button></li>
-        <li class='pagination-item'><button class="button-number">${length}</button></li>
-        <li class="pagination-item"><button class="right">&#8594</button></li>`;
+      <li class='pagination-item'><button class="button-number">1</button></li>
+      <li class='pagination-item'><button class="more-pages">...</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage - 1
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage}</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 1
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 2
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 3
+      }</button></li>
+      <li class='pagination-item'><button class="more-pages">...</button></li>
+      <li class='pagination-item'><button class="button-number">${length}</button></li>
+      <li class="pagination-item"><button class="right">&#8594</button></li>`;
     } else {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
-    <li class='pagination-item'><button class="button-number">1</button></li>
-        <li class='pagination-item'><button class="more-pages">...</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          length - 4
-        }</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          length - 3
-        }</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          length - 2
-        }</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          length - 1
-        }</button></li>
-        <li class='pagination-item'><button class="button-number">${length}</button></li>
-        <li class="pagination-item"><button class="right">&#8594</button></li>`;
+  <li class='pagination-item'><button class="button-number">1</button></li>
+      <li class='pagination-item'><button class="more-pages">...</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 4
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 3
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 2
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 1
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${length}</button></li>
+      <li class="pagination-item"><button class="right">&#8594</button></li>`;
     }
   }
+}
+
+function clearPaginationMarkup() {
+  paginationEl.innerHTML = "";
+}
+
+function setActiveBtn(event) {
+  if (watchedLibreryArray.length === 0 || watchedLibreryArray === []) {
+    return;
+  }
+  const numberBtnsEl = document.querySelectorAll("button.button-number");
+  const btnsArray = [...numberBtnsEl];
+
+  if (currentPage === 0) {
+    numberBtnsEl[0].classList.add("active-pagination");
+  } else {
+    let targetBtnValue = 0;
+
+    if (event.target.textContent === "→" || event.target.textContent === "←") {
+      targetBtnValue = currentPage + 1;
+    } else {
+      targetBtnValue = Number(event.target.textContent);
+    }
+
+    btnsArray.find((btn, index) => {
+      if (btn.classList.contains("active-pagination")) {
+        numberBtnsEl[index].classList.remove("active-pagination");
+      }
+    });
+
+    btnsArray.find((btn, index) => {
+      if (Number(btn.textContent) === targetBtnValue) {
+        numberBtnsEl[index].classList.add("active-pagination");
+      }
+    });
+  }
+}
+
+function onNumberBtnClick(event) {
+  currentPage = Number(event.target.textContent) - 1;
+}
+
+function onRightBtnClick() {
+  currentPage += 1;
+}
+
+function onLeftBtnClick() {
+  currentPage -= 1;
+}
+
+function onBtnsClick(event) {
+  const paginationBtnsList = document.querySelectorAll("button.button-number");
+  const lastPage = Number(
+    paginationBtnsList[paginationBtnsList.length - 1].textContent
+  );
+
+  loaderToggle();
+
+  if (Number(event.target.textContent)) {
+    onNumberBtnClick(event);
+  } else if (event.target.textContent === "→" && currentPage < lastPage - 1) {
+    onRightBtnClick();
+  } else if (event.target.textContent === "←" && currentPage > 0) {
+    onLeftBtnClick();
+  } else {
+    return;
+  }
+
+  clearPaginationMarkup();
+  clearMovieContainer();
+}
+
+function clearMovieContainer() {
+  container.innerHTML = "";
+}
+
+function createPagination() {
+  setTimeout(() => {
+    findActiveBtn();
+    choseLibrary(page);
+    calculateQuntityOfPages(FILMS_ON_PAGE);
+    renderPaginationMarkup(quntityOfPages);
+    setActiveBtn();
+  }, 0);
 }

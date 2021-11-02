@@ -70,7 +70,8 @@ function selectMovieCart(event) {
 
     async function fetchMoiveId() {
       let id = `${event.target.parentNode.parentNode.dataset.id}`;
-      //console.log(id);
+      console.log(id);
+
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
       );
@@ -208,3 +209,17 @@ function getQueuedMovies() {
 }
 
 queuedBtn.addEventListener("click", getQueuedMovies);
+
+//active buttons
+watchedBtn.addEventListener("click", watchedActiv);
+queuedBtn.addEventListener("click", queueActiv);
+
+function watchedActiv() {
+  watchedBtn.classList.add("activBtn");
+  queuedBtn.classList.remove("activBtn");
+}
+function queueActiv() {
+  watchedBtn.classList.remove("activBtn");
+  queuedBtn.classList.add("activBtn");
+}
+

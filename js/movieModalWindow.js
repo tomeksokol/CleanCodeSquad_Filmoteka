@@ -84,12 +84,12 @@ function renderMovieCart(id) {
     .slice(0, 3)
     .join(", ");
 
-    let poster = "";
-    if (poster_path) {
-      poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
-    } else {
-      poster = "./images/poster-placeholder.png";
-    }
+  let poster = "";
+  if (poster_path) {
+    poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  } else {
+    poster = "./images/poster-placeholder.png";
+  }
   modalContent.innerHTML = `<div class="modal__cartContainer">
   <div class="modal__movie-content">
   <div class="modal__poster">
@@ -130,8 +130,6 @@ function renderMovieCart(id) {
   modalButtonQueue.addEventListener("click", function () {
     addToLocalStorage("queuedMovieIDs", modalButtonQueue.dataset.id);
   });
-
-  
 }
 
 export { renderMovieCart };
