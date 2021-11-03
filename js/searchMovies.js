@@ -33,6 +33,7 @@ function searchFilms() {
     })
     .catch((err) => {
       console.log(err);
+      loaderToggle();
     });
 }
 form.addEventListener("submit", (e) => {
