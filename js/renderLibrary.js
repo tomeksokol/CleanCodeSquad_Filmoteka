@@ -19,7 +19,7 @@ async function fetchMovie(id) {
 
 function renderMovieItem(movie) {
   const { id, poster_path, genres, original_title, release_date } = movie;
-  let relaseYear = movie.release_date.slice(0, 4);
+  let relaseYear = release_date?.slice(0, 4) ?? "";
   let gen = genres
     .map((genre) => genre.name)
     .slice(0, 3)
@@ -226,3 +226,4 @@ function queueActiv() {
   queuedBtn.classList.add("activBtn");
 }
 
+export { renderMovieItem, fetchMovie };
