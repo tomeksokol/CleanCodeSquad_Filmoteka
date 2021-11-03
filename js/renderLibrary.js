@@ -62,11 +62,7 @@ function selectMovieCart(event) {
   //function that disable modal window if you click in the gallerryContainer but not for movie cart
   if (event.target.nodeName === "DIV") {
     modal.style.display = "none";
-    // console.log("You have to click movie cart");
   } else {
-    // modalContent.innerHTML = "";
-    // console.log(event.target.parentNode.parentNode);
-    // console.log(`Movie ID: ${event.target.parentNode.parentNode.dataset.id}`);
     modal.style.display = "block";
 
     async function fetchMoiveId() {
@@ -180,7 +176,6 @@ let savedWatchedMovies = localStorage.getItem("watchedMovieIDs");
 function getwatchedMovies() {
   libraryContainer.innerHTML = "";
   let watchedMovies = JSON.parse(savedWatchedMovies);
-  //console.log(watchedMovies);
   if (watchedMovies === null) {
     //console.log("local storage is empty!");
     section.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
@@ -190,7 +185,6 @@ function getwatchedMovies() {
   } else {
     libraryContainer.innerHTML = "";
     watchedMovies.forEach(renderMovieID);
-    //console.log(watchedMovies);
   }
 }
 
@@ -207,7 +201,6 @@ function getQueuedMovies() {
   </div>`;
   } else {
     libraryContainer.innerHTML = "";
-    //console.log(queuedMovies);
     queuedMovies.forEach(renderMovieID);
   }
 }
