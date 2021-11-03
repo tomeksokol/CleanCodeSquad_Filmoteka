@@ -24,6 +24,7 @@ function setFilms() {
     })
     .catch((err) => {
       console.log(err);
+      loaderToggle();
     });
 }
 
@@ -60,7 +61,7 @@ function renderMovies(movie) {
       if (poster_path) {
         poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
       } else {
-        poster = "./images/poster-placeholder.png";
+        poster = "./images/placeholder/poster-placeholder.png";
       }
       let relaseYear = release_date.substring(0, 4);
       container.innerHTML += `<div class="movies-cart">

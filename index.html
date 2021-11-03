@@ -24,7 +24,7 @@
       <nav class="nav__container">
         <div class="nav__logo">
           <a href="./index.html">
-            <img class="logo__img" src="./images/logo.png" alt="movie-logo" />
+            <img class="logo__img" src="./images/logo/logo.png" alt="movie-logo" />
             <span class="logo__title">Filmoteka</span>
           </a>
         </div>
@@ -51,7 +51,6 @@
         </form>
       </div>
       <div class="search__result">
-        Search result not successful. Enter the correct movie name and try again
       </div>
   </header>
 
@@ -61,7 +60,6 @@
       <ul class="movie__pagination"></ul>
     </section>
   </main>
-  <!-- footer -->
   <footer class="footer__page">
     <div class="container">
       <p class="footer__page-lead">
@@ -85,19 +83,19 @@
     <button class="modal__close" data-modal-close><img width="30px" src="./images/close.svg" /></button>
     <ul class="modal__team-list">
       <li class="modal__item">
-        <img class="modal__img" src="./images/tomaszimg.jpg" alt="Tomasz" width="100px" height="100px">
+        <img class="modal__img" src="./images/team/tomasz.jpg" alt="Tomasz" width="100px" height="100px">
         <h3 class="modal__name">Tomasz Sokół</h3>
         <p class="modal__description">Team Leader</p>
         <a class="modal__link" href="https://github.com/tomeksokol" target="_blank"><img class="modal__git" src="./images/github.svg" width="12" height="12"/>github</a>
       </li>
       <li class="modal__item">
-        <img class="modal__img" src="./images/michalimg.jpg" alt="Michał" width="100px" height="100px">
+        <img class="modal__img" src="./images/team/michal.jpg" alt="Michał" width="100px" height="100px">
         <h3 class="modal__name">Michał Balicki</h3>
         <p class="modal__description">Team member</p>
         <a class="modal__link" href="https://github.com/MichalBielicki" target="_blank"><img class="modal__git" src="./images/github.svg" width="12" height="12"/>github</a>
       </li>
       <li class="modal__item">
-        <img class="modal__img" src="./images/patrycjaimg.jpg" alt="Patrycja" width="100px" height="100px">
+        <img class="modal__img" src="./images/team/patrycja.jpg" alt="Patrycja" width="100px" height="100px">
         <h3 class="modal__name">Patrycja Nowakowska</h3>
         <p class="modal__description">Team member</p>
         <a class="modal__link" href="https://github.com/PatrycjaNowakowska" target="_blank"><img class="modal__git" src="./images/github.svg" width="12" height="12"/>github</a>
@@ -106,15 +104,13 @@
 
       </div>
     </div>
-    <!-- <script src="./js/modal.js"></script> -->
-
   </footer>
 
 <!-- The Modal Movie Cart-->
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <div class="modal-view"></div>
+    <div class="modal-view">The server coudn't load this cart. Try again!</div>
   </div>
 
   

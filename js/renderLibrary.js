@@ -29,7 +29,7 @@ function renderMovieItem(movie) {
   if (poster_path) {
     poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
   } else {
-    poster = "./images/poster-placeholder.png";
+    poster = "./images/placeholder/poster-placeholder.png";
   }
   libraryContainer.innerHTML += `<div class="movies-cart">
       <ul class="movies-list">
@@ -88,7 +88,10 @@ function selectMovieCart(event) {
           renderMovieCartinLibrary(id);
           loaderToggle();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          loaderToggle();
+        });
     }
 
     setMovieCard();
@@ -119,7 +122,7 @@ function renderMovieCartinLibrary(movie) {
   if (poster_path) {
     poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
   } else {
-    poster = "./images/poster-placeholder.png";
+    poster = "./images/placeholder/poster-placeholder.png";
   }
   modalContent.innerHTML = `<div class="modal__cartContainer">
   <div class="modal__movie-content">
