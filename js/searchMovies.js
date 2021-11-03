@@ -26,6 +26,7 @@ function searchFilms() {
       loaderToggle();
       if (movie.results.length === 0) {
         searchResult.style.display = "block";
+        searchResult.textContent = "Search result not successful. Enter the correct movie name and try again";
       } else {
         container.innerHTML = "";
         renderMovies(movie);
