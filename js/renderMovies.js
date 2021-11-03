@@ -63,7 +63,7 @@ function renderMovies(movie) {
       } else {
         poster = "./images/placeholder/poster-placeholder.png";
       }
-      let relaseYear = release_date.substring(0, 4);
+      let relaseYear = release_date?.slice(0, 4) ?? "";
       container.innerHTML += `<div class="movies-cart">
       <ul class="movies-list">
       <li class="movies-item" data-id="${id}">
