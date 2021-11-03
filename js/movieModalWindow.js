@@ -42,7 +42,10 @@ function selectMovieCart(event) {
           renderMovieCart(id);
           loaderToggle();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          loaderToggle();
+        });
     }
 
     setMovieCard();
