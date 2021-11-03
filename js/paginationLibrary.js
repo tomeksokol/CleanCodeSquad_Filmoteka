@@ -1,4 +1,5 @@
 import loaderToggle from "./spinner.js";
+import { renderMovieItem, fetchMovie } from "./renderLibrary.js";
 const paginationEl = document.querySelector(".library__pagination");
 const container = document.querySelector(".library__container");
 const modalButtonWatched = document.querySelector(".watched");
@@ -298,6 +299,58 @@ function onBtnsClick(event) {
 
   clearPaginationMarkup();
   clearMovieContainer();
+
+  getUserCollection(page)
+    .then((films) => {
+      const filteredFilms = [];
+      console.log(films);
+
+      if (films.length <= FILMS_ON_PAGE) {
+        films.map((film) => {
+          renderMovieItem(film);
+        });
+      } else {
+        films.filter((film, index) => {
+          if (
+            index > FILMS_ON_PAGE * currentPage &&
+            index <= FILMS_ON_PAGE * (currentPage + 1)
+          ) {
+            filteredFilms.push(film);
+          }
+        });
+        filteredFilms.map((filteredfilm) => {
+          renderMovieItem(filteredfilm);
+        });
+      }
+    })
+    .then(renderPaginationMarkup(quntityOfPages))
+    .then(setActiveBtn(event))
+    .then(loaderToggle)
+    .then(goToTop);
+}
+
+function getArrayID(goal) {
+  return JSON.parse(localStorage.getItem(goal));
+}
+
+async function getUserCollection(goal) {
+  const userCollectionPromises = [];
+  const arrayID = getArrayID(goal);
+  if (arrayID < 1) return [];
+
+  arrayID.map((id) => {
+    userCollectionPromises.push(fetchMovie(id));
+  });
+  const userCollection = Promise.all(userCollectionPromises);
+
+  return await userCollection;
+}
+
+function goToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 }
 
 function clearMovieContainer() {
