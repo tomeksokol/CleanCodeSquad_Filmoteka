@@ -453,6 +453,7 @@ a {
 }
 
 .footer__page {
+  background: #f7f7f7;
   color: #545454;
   font-size: 16px;
   line-height: 1.18;
@@ -472,21 +473,9 @@ a {
   color: inherit;
 }
 
-@media screen and (max-width: 767px) {
-  .footer__page {
-    min-width: 320px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .footer__page {
-    width: 658px;
-  }
-}
-
 @media screen and (min-width: 1024px) {
   .footer__page {
-    width: 922px;
+    max-width: 1024px;
   }
 }
 
