@@ -453,7 +453,6 @@ a {
 }
 
 .footer__page {
-  background-color: #F7F7F7;
   color: #545454;
   font-size: 16px;
   line-height: 1.18;
@@ -474,16 +473,26 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-  .footer__page .footer__page {
-    padding-left: 46px;
-    padding-right: 35px;
+  .footer__page {
+    min-width: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer__page {
+    width: 658px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .footer__page {
-    max-width: 1024px;
+    width: 922px;
   }
+}
+
+.footer__underline {
+  text-decoration: underline;
+  color: #545454;
 }
 
 /* The Modal (background) */
