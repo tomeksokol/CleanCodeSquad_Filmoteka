@@ -6,6 +6,7 @@ const modalContent = document.querySelector(".modal-view");
 const galleryContainer = document.querySelector(".library__container");
 const modal = document.querySelector("#myModal");
 const closeBtn = document.querySelector(".close");
+const section = document.querySelector(".library__gallery")
 
 async function fetchMovie(id) {
   const response = await fetch(
@@ -176,7 +177,8 @@ function getwatchedMovies() {
   libraryContainer.innerHTML = "";
   let watchedMovies = JSON.parse(savedWatchedMovies);
   if (watchedMovies === null) {
-    libraryContainer.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
+    //console.log("local storage is empty!");
+    section.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
             <use href="./images/icons.svg#icon-heart"></use>
           </svg>
   </div>`;
@@ -192,7 +194,8 @@ const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
 function getQueuedMovies() {
   let queuedMovies = JSON.parse(savedQueuedMovies);
   if (queuedMovies === null) {
-    libraryContainer.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
+    //console.log("local storage is empty!");
+    section.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
             <use href="./images/icons.svg#icon-heart"></use>
           </svg>
   </div>`;

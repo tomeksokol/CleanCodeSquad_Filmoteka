@@ -3,12 +3,13 @@
     padding: 20px;
     text-align: center;
     color: #ff6b08;
-    width: 900px;
-    height: 90px;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     opacity:0.9;
     border: 2px solid #ff6b08;
     text-transform : uppercase;
     font-weight:bold;
+    grid-template-columns: auto;
+    width: 80%;
+    margin: auto;
 }
