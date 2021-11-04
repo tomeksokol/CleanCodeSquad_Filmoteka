@@ -15,6 +15,7 @@ Our team project is a website that searches for **popular movies** and allows yo
  - Grid,
  - RWD,
  - JavaScript, 
+ - Trello,
  - Snowpack, 
  - Public API, 
  - localStorage,
