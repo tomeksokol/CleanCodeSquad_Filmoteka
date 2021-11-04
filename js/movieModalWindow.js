@@ -122,12 +122,21 @@ function renderMovieCart(id) {
   const modalButtonQueue = document.querySelector(".btn-queue");
 
   modalButtonWatched.addEventListener("click", function () {
-    addToLocalStorage("watchedMovieIDs", modalButtonWatched.dataset.id);
+    if (modalButtonWatched.textContent === "Add to watched") {
+      addToLocalStorage("watchedMovieIDs", modalButtonWatched.dataset.id);
+      modalButtonWatched.textContent = "REMOVE FROM WATCHED";
+    } else {
+      modalButtonWatched.textContent = "Add to watched";
+    }
   });
 
   modalButtonQueue.addEventListener("click", function () {
-    addToLocalStorage("queuedMovieIDs", modalButtonQueue.dataset.id);
+    if (modalButtonQueue.textContent === "Add to queue") {
+      addToLocalStorage("queuedMovieIDs", modalButtonQueue.dataset.id);
+      modalButtonQueue.textContent = "REMOVE FROM QUEUE";
+    } else {
+      modalButtonQueue.textContent = "Add to queue";
+    }
   });
 }
-
 export { renderMovieCart };
