@@ -23,7 +23,7 @@ function setFilms() {
       loaderToggle();
     })
     .catch((err) => {
-      console.log(err);
+      //console.log(err);
       loaderToggle();
     });
 }
