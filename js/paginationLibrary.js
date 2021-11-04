@@ -49,12 +49,12 @@ function choseLibrary(chosedBtn) {
   ) {
     return;
   } else if (chosedBtn === WATCHEDKEY) {
-    if (localStorage.getItem(WATCHEDKEY) === "[]") {
+    if (localStorage.getItem(WATCHEDKEY) === null) {
       return;
     }
     watchedLibreryArray = JSON.parse(localStorage.getItem(WATCHEDKEY));
   } else {
-    if (localStorage.getItem(QUEUEKEY) === "[]") {
+    if (localStorage.getItem(QUEUEKEY) === null) {
       return;
     }
     watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUEKEY));
@@ -281,7 +281,7 @@ function onBtnsClick(event) {
   getUserCollection(page)
     .then((films) => {
       const filteredFilms = [];
-      console.log(films);
+      //console.log(films);
 
       if (films.length <= FILMS_ON_PAGE) {
         films.map((film) => {
