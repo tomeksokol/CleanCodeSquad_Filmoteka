@@ -12,6 +12,8 @@ Our team project is a website that searches for **popular movies** and allows yo
  - HTML , 
  - CSS, 
  - SASS, 
+ - Grid,
+ - RWD,
  - JavaScript, 
  - Snowpack, 
  - Public API, 
