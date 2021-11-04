@@ -49,16 +49,17 @@ function choseLibrary(chosedBtn) {
   ) {
     return;
   } else if (chosedBtn === WATCHEDKEY) {
-    if (localStorage.getItem(WATCHEDKEY) === "[]") {
+    if (localStorage.getItem(WATCHEDKEY) === null) {
       return;
     }
     watchedLibreryArray = JSON.parse(localStorage.getItem(WATCHEDKEY));
   } else {
-    if (localStorage.getItem(QUEUEKEY) === "[]") {
+    if (localStorage.getItem(QUEUEKEY) === null) {
       return;
     }
     watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUEKEY));
   }
+  console.log(watchedLibreryArray);
 }
 
 function calculateQuntityOfPages(filmsPerPage) {
