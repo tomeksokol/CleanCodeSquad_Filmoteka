@@ -1074,5 +1074,7 @@ ul.library__pagination button.active-pagination {
       grid-template-columns: auto;
   width: 80%;
   margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 /*# sourceMappingURL=main.css.map */
