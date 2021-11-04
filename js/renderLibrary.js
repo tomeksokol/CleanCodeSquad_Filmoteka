@@ -67,8 +67,6 @@ function selectMovieCart(event) {
 
     async function fetchMoiveId() {
       let id = `${event.target.parentNode.parentNode.dataset.id}`;
-      console.log(id);
-
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=5d5fbc20666787ca7b4a0d9d71c08715`
       );
@@ -177,7 +175,6 @@ function getwatchedMovies() {
   libraryContainer.innerHTML = "";
   let watchedMovies = JSON.parse(savedWatchedMovies);
   if (watchedMovies === null) {
-    //console.log("local storage is empty!");
     section.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
             <use href="./images/icons.svg#icon-heart"></use>
           </svg>
@@ -194,7 +191,6 @@ const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
 function getQueuedMovies() {
   let queuedMovies = JSON.parse(savedQueuedMovies);
   if (queuedMovies === null) {
-    //console.log("local storage is empty!");
     section.innerHTML = `<div class="library__empty"> Your Library is empty! Please, add movies to your library <svg class="footer__page-icon" width="14px" height="13px">
             <use href="./images/icons.svg#icon-heart"></use>
           </svg>
