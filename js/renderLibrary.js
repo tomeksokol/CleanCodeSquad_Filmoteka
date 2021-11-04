@@ -37,9 +37,6 @@ function renderMovieItem(movie) {
       <li class="movies-item" data-id="${id}">
       <div class="movies-poster">
       <img class="movies-image" src=${poster} alt="${original_title}"/>
-      <div class="middle">
-      <div><img class="movies-preview" src="./images/eye.svg"/></div>
-      </div>
       </div>
 
   <div class="description">
